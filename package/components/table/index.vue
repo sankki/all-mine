@@ -1,0 +1,268 @@
+<template>
+    <div class="am-table">
+        <div style="display: none"><slot /></div>
+        <div class="am-table__hd">
+            <table>
+                <thead>
+                    <tr>
+                        <th
+                            v-for="(item, index) in columnData"
+                            :key="index"
+                            :style="{
+                                width: item.props.width,
+                            }"
+                        >
+                            <!-- slot th -->
+                            <Cell
+                                :slot-fun="item.slots.th"
+                                v-if="item.slots.th"
+                            />
+                            <!-- 文字 th -->
+                            <div class="am-table__th-cell" v-else>
+                                {{ item.props.label }}
+                            </div>
+                        </th>
+                        <th
+                            class="am-table__th-scroll-bar"
+                            :style="'width:' + scrollBarWidth + 'px;'"
+                        ></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="am-table__bd" :style="bdStyle" ref="bd">
+            <table>
+                <colgroup>
+                    <col
+                        v-for="(item, index) in columnData"
+                        :key="index"
+                        :style="{
+                            width: item.props.width,
+                        }"
+                    />
+                </colgroup>
+                <tbody>
+                    <tr
+                        v-for="(item1, index1) in data"
+                        :key="index1"
+                        :class="rowClass(item1)"
+                        @click="clickRow(item1)"
+                    >
+                        <td
+                            v-for="(item2, index2) in columnData"
+                            :key="index2"
+                            @click="clickCell(item1, item2)"
+                        >
+                            <!-- <div v-if="true">123</div> -->
+                            <!-- slot td -->
+                            <Cell
+                                :slot-fun="item2.slots.default"
+                                :data="item1"
+                                v-if="item2.slots.default"
+                            />
+                            <!-- 文字 td -->
+                            <div class="am-table__td-cell" v-else>
+                                {{ item1[item2.props.prop] }}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+
+<script setup>
+// Cell组件
+import {
+    defineComponent,
+    defineProps,
+    ref,
+    computed,
+    onMounted,
+    defineEmits,
+    provide,
+    h,
+} from 'vue';
+import { observeElResize } from '../../utils/dom';
+
+const props = defineProps({
+    // 表格数据
+    data: null,
+    // 高度
+    height: {
+        type: String,
+    },
+    // 对齐方式
+    align: {
+        type: String,
+        default: 'left', // left center right
+    },
+    // 行类
+    rowClass: {
+        type: Function,
+        default: () => {},
+    },
+});
+const columnData = ref([]);
+provide('tableColumnData', columnData);
+// 滚动
+const bdStyle = computed(() => ({
+    height: props.height ? `${props.height}` : '',
+    overflow: props.height ? 'auto' : '',
+}));
+const scrollBarWidth = ref(0);
+const bd = ref(null);
+onMounted(() => {
+    observeElResize(bd.value.firstChild, () => {
+        const beRect = bd.value.getBoundingClientRect();
+        const tableRect = bd.value.firstChild.getBoundingClientRect();
+        scrollBarWidth.value = beRect.width - tableRect.width - 2;
+        console.log(scrollBarWidth.value);
+    });
+});
+
+// 事件
+const emit = defineEmits(['row-click', 'cell-click']);
+// 点击行
+const clickRow = (row) => {
+    emit('row-click', row);
+};
+// 点击单元格
+const clickCell = (row, column) => {
+    emit('cell-click', row, column);
+};
+
+const Cell = defineComponent({
+    name: 'Cell',
+    props: {
+        slotFun: null,
+        data: null,
+    },
+    render() {
+        return h(
+            'div',
+            {
+                attrs: {
+                    class: 'cell',
+                },
+            },
+            this.slotFun(this.data),
+        );
+    },
+});
+</script>
+
+<style lang="scss">
+.am-table {
+    width: 100%;
+    background: #fff;
+    th,td,tr,table {
+        border: none;
+    }
+    &__hd {
+        border: 1px solid #ddd;
+        > table {
+            width: 100%;
+            table-layout: fixed;
+            display: table;
+            margin: 0;
+            > thead {
+                > tr {
+                    > th {
+                        padding: 12px 16px;
+                        color: #999;
+                        font-size: 14px;
+                        text-align: left;
+                        border-right: 1px solid #ddd;
+                        &:nth-last-child(1), &:nth-last-child(2) {
+                            border-right: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__bd {
+        border: 1px solid #ddd;
+        border-top: none;
+        > table {
+            width: 100%;
+            table-layout: fixed;
+            display: table;
+            margin: 0;
+            > tbody {
+                > tr {
+                    border-bottom: 1px solid #ddd;
+                    > td {
+                        padding: 12px 16px;
+                        font-size: 14px;
+                        text-align: left;
+                        border-right: 1px solid #ddd;
+                        &:nth-last-child(1) {
+                            border-right: none;
+                        }
+                    }
+                    &:first-child {
+                        border-top: none;
+                        > td {
+                            border-top: none;
+                        }
+                    }
+                    &:last-child {
+                        border-bottom: none;
+                        > td {
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__th-cell {
+        display: flex;
+        align-items: center;
+    }
+    &__th-scroll-bar {
+        padding: 0!important;
+    }
+
+    &__sort {
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        height: 16px;
+        width: 20px;
+        vertical-align: middle;
+        cursor: pointer;
+        overflow: initial;
+        i {
+            position: absolute;
+            left: 5px;
+            width: 0;
+            height: 0;
+            border: 4px solid transparent;
+            &:first-child {
+                border-bottom-color: #c0c4cc;
+                top: -1px;
+            }
+            &:last-child {
+                border-top-color: #c0c4cc;
+                bottom: -1px;
+            }
+        }
+        &.is-asc {
+            i:first-child {
+                border-bottom-color: #333;
+            }
+        }
+        &.is-desc {
+            i:last-child {
+                border-top-color: #333;
+            }
+        }
+    }
+}
+</style>

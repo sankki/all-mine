@@ -1,0 +1,50 @@
+:root {
+    // 主题色
+    --primary-1: #edf2f8;
+    --primary-2: #dfe8f8;
+    --primary: #3479f6;
+    --primary-4: #2d6ce0;
+    --primary-5: #1c57c4;
+
+    // 系统色
+    --success: #10A370;
+    --warning: #AD4D0C;
+    --fail: #D92424;
+    --info: #0C6BC9;
+
+    // 字体色
+    --fcolor-0: #000; // 最深文字
+    --fcolor-1: #333; // 正文
+    --fcolor-2: #666; // 副文
+    --fcolor-3: #999; // 提示文
+    --placeholder: #999; // 默认输入的文字
+
+    // 边框色
+    --border: #e5e5e5;
+
+    // 灰背景色
+    --light-bg: #f5f5f5;
+    --gray-bg: #ccc;
+
+    // 三层阴影
+    --shadow-1: 0px 4px 12px rgba(0, 0, 0, 0.13); // 低层
+    --shadow-2: 0px 4px 12px rgba(0, 0, 0, 0.10); // 中层
+    --shadow-3: 0px 4px 12px rgba(0, 0, 0, 0.07); // 高层
+}
+
+::-webkit-input-placeholder {
+    color: var(--placeholder);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    background-color: rgba(0,0,0,.08);
+}

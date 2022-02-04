@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-overflow-scrolling: touch;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #fff;
+    font-family:
+        -apple-system,BlinkMacSystemFont,
+        Segoe UI,Roboto,Ubuntu,
+        Helvetica Neue,
+        Helvetica,Arial,
+        PingFang SC,
+        Hiragino Sans GB,
+        Microsoft Yahei UI,
+        Microsoft Yahei,
+        Source Han Sans CN,
+        'Segoe UI Emoji',
+        'Apple Color Emoji',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    border:0;
+    display:block;
+}
+
+a,a:hover,a:active,a:visited,a:link,a:focus,button {
+    color: #000;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+i,b {
+    font-weight: normal;
+    font-style: normal;
+}
+
+ul,ol,li {
+    list-style:none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input,textarea,form,button {
+    outline: none;
+    border: none;
+}
+
+::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+pre, code {
+    font-family: 'Menlo';
+}
