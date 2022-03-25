@@ -4,33 +4,48 @@ import path from 'path';
 
 export default ({ command, mode }) => {
     return defineConfig({
-        plugins: [vue()],
+        plugins: [
+            vue()
+        ],
         resolve: {
-            conditions: [],
+            dedupe: ['vue'],
             extensions:['.js','.json', '.vue']  
         },
         build: {
-            lib: {
-                entry: path.resolve(__dirname, './index.js'),
-                name: 'allmine',
+            resolve: {
+                dedupe: ['vue'],
+                extensions:['.js','.json', '.vue']  
             },
-            target: 'modules',
-            outDir: path.resolve(__dirname, '../lib'),
-            assetsInlineLimit: 0,
-            cssCodeSplit: true,
-            minify: 'terser',
-            write: true,
-            emptyOutDir: true,
-            brotliSize: true,
-            chunkSizeWarningLimit: 500
+            lib: {
+                entry: path.resolve(__dirname, './package/index.js'),
+                name: 'AllMine',
+            },
+            outDir: path.resolve(__dirname, './lib'),
+            rollupOptions: {
+                external: ['vue'],
+                resolve: {
+                    dedupe: ['vue']
+                },
+                output: {
+                    globals: {
+                        vue: 'Vue'
+                    }
+                },
+            },
         },
-        server: {
-            host: 'localhost',
-            cors: true,
-            open: true,
-            port: '9000',
-            strictPort: false,
-            force: true,
+        rollupOptions: {
+            external: ['vue'],
+            resolve: {
+                dedupe: ['vue']
+            },
+            output: {
+                globals: {
+                    vue: 'Vue'
+                }
+            },
+            input: {
+                test: path.resolve(__dirname, 'test/index.html'),
+            },
         },
     })
 }

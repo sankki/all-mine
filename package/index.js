@@ -19,6 +19,10 @@ import AmLogo from './components/logo/index.vue';
 import AmForm from './components/form/index.vue';
 import AmFormItem from './components/form-item/index.vue';
 import AmAvatar from './components/avatar/index.vue';
+import AmList from './components/list/index.vue';
+import AmListItem from './components/list-item/index.vue';
+import AmWaterfall from './components/waterfall/index.vue';
+import AmDropdown from './components/dropdown/index.vue';
 
 import AmMessage from './components/message/index';
 import AmLoading from './components/loading/index';
@@ -53,6 +57,10 @@ export default {
         app.component('AmForm', AmForm);
         app.component('AmFormItem', AmFormItem);
         app.component('AmAvatar', AmAvatar);
+        app.component('AmList', AmList);
+        app.component('AmListItem', AmListItem);
+        app.component('AmWaterfall', AmWaterfall);
+        app.component('AmDropdown', AmDropdown);
 
         app.directive('clickoutside', clickoutside);
         app.directive('clickanime', clickanime);

@@ -35,6 +35,7 @@ module.exports = {
                     { text: '弹出层', link: '/popup' },
                     { text: '提示', link: '/tooltip' },
                     { text: '加载', link: '/loading' },
+                    { text: '下拉框', link: '/dropdown' },
                 ],
                 sidebarDepth:3
             },
@@ -53,6 +54,7 @@ module.exports = {
                     { text: '分页', link: '/pagination' },
                     { text: 'Logo', link: '/logo' },
                     { text: '头像', link: '/avatar' },
+                    { text: '列表', link: '/list' },
                 ],
                 sidebarDepth:3
             },

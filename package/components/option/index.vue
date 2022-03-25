@@ -67,20 +67,22 @@ const clickOption = () => {
 .am-option {
     user-select: none;
     padding: 5px 8px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 24px;
     position: relative;
     cursor: pointer;
+    padding-right: 24px;
+    color: #fff;
     &__check {
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 8px;
+        right: 2px;
         margin: auto;
-        color: #54aa40;
+        color: #7beb64;
     }
     &:hover {
-        background: #f5f5f5;
+        background: rgba(255,255,255,.1);
     }
     &.is-selected {
 

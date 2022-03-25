@@ -73,12 +73,13 @@ const props = defineProps({
         default: '',
     },
 })
-const tipEl = ref(null)
+const tipEl = ref(null);
+let tipElement = null;
 const triggerEl = ref(null)
 const popEl = ref(null)
 const popShow = ref(false)
 const fatherScrollEls = ref([])
-const ro = ref(null)
+let ro = null;
 const zIndex = ref(popupManager.getZIndex())
 // 原点的坐标
 const rLeft = ref(0)
@@ -116,7 +117,8 @@ const tipStyle = computed(() => {
     }
 })
 onMounted(() => {
-    document.body.appendChild(tipEl.value)
+    document.body.appendChild(tipEl.value);
+    tipElement = tipEl.value;
 })
 
 const onMouseEnter = () => {
@@ -167,21 +169,29 @@ const check = async () => {
 }
 const afterLeave = async () => {}
 const startObserve = () => {
-    check()
-    fatherScrollEls.value = getScrollBoxOfEl(triggerEl.value)
+    check();
+    // 监听父级祖先级滚动
+    fatherScrollEls.value = getScrollBoxOfEl(triggerEl.value);
     fatherScrollEls.value.forEach((scrollBox) => {
         scrollBox.addEventListener('scroll', check)
     })
     // 窗口变化
-    window.addEventListener('resize', check)
-    ro.value = observeElResize(triggerEl.value, check)
+    window.addEventListener('resize', check);
+    // 监听目标元素变化
+    ro = observeElResize(triggerEl.value, () => {
+        if(!triggerEl.value) {
+            tipElement.remove();
+        }else {
+            check();
+        }
+    })
 }
 const endObserve = () => {
     fatherScrollEls.value.forEach((scrollBox) => {
-        scrollBox.removeEventListener('scroll', check)
+        scrollBox.removeEventListener('scroll', check);
     })
-    window.removeEventListener('resize', check)
-    offObserveElResize(triggerEl.value, ro.value)
+    window.removeEventListener('resize', check);
+    if(triggerEl.value && ro) offObserveElResize(triggerEl.value, ro);
 }
 watch(
     () => popShow.value,
@@ -190,7 +200,7 @@ watch(
             zIndex.value = popupManager.getZIndex()
             startObserve()
         } else {
-            endObserve()
+            endObserve();
         }
     }
 )

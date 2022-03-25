@@ -1,7 +1,10 @@
 <template>
     <div class="am-select" :class="asClass" v-clickoutside="clickOutside">
         <!-- 下拉框内容 -->
-        <AmPopover v-model:show="dropDownShow">
+        <AmPopover 
+            popover-box-class="am-select-popover-box"
+            v-model:show="dropDownShow"
+        >
             <template v-slot:trigger>
                 <!-- 选择框 -->
                 <div
@@ -164,23 +167,18 @@ provide('setValue', (option) => {
         height: 20px;
         line-height: 20px;
     }
-
-    .am-popover {
-        &__pop {
-            max-height: 180px;
-        }
-    }
     // 修饰
-    &:hover {
-        .am-select__box {
-            // border-color: #333;
-        }
-    }
     &.is-focus {
         .am-select__box {
             border: 1px solid #3375e5;
             outline: 2px solid #bfd0f0;
         }
+    }
+}
+.am-select-popover-box {
+    .am-popover__box-pop {
+        max-height: 180px;
+        background: rgba(0, 0, 0, 0.9);
     }
 }
 </style>

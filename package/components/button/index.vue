@@ -18,7 +18,6 @@
 import {
     defineProps, computed, defineEmits,
 } from 'vue';
-import { debounce } from 'lodash';
 import AmIcon from '../icon/index.vue';
 import clickanime from '../../directives/clickanime/index';
 
@@ -41,12 +40,17 @@ const props = defineProps({
     // 形状
     sharp: {
         type: String,
-        default: 'rectangle', // rectangle 长方形 round 圆角 circle 圆形
+        default: 'rectangle', // rectangle 长方形 round 圆角 circle 圆形 square 正方形
     },
     // 场景
     scene: {
         type: String,
         default: 'light',
+    },
+    // 功用
+    function: {
+        type: String,
+        default: '', // confirm 确认 cancel 取消
     },
     // 选中
     selected: {
@@ -79,6 +83,7 @@ const className = computed(() => ({
     [`is-${props.size}`]: props.size,
     [`is-${props.sharp}`]: props.sharp,
     [`is-${props.scene}`]: props.scene,
+    [`is-${props.function}`]: props.function,
 }));
 const iconClass = computed(() => ({
     [`is-${props.iconPosition}`]: props.iconPosition,
@@ -122,10 +127,9 @@ const handleClick = (e) => {
     }
     // 按钮不可用
     &.is-disabled {
-        background: #eee;
-        color: #999;
-        border: none;
         pointer-events: none;
+        cursor: not-allowed;
+        opacity: .4;
     }
 
     // 明朗模式
@@ -241,12 +245,14 @@ const handleClick = (e) => {
     // 尺寸
     &.is-large {
         height: 40px;
+        line-height: 40px;
         padding: 0 16px;
         font-size: 16px;
         min-width: 40px;
     }
     &.is-medium {
         height: 30px;
+        line-height: 30px;
         padding: 0 12px;
         min-width: 30px;
         font-size: 14px;
@@ -254,12 +260,14 @@ const handleClick = (e) => {
     &.is-small {
         font-size: 14px;
         height: 24px;
+        line-height: 24px;
         padding: 0 8px;
         min-width: 24px;
     }
     &.is-mini {
         font-size: 12px;
         height: 16px;
+        line-height: 16px;
         padding: 0 4px;
         min-width: 16px;
     }
@@ -324,6 +332,40 @@ const handleClick = (e) => {
             width: 16px;
             border-radius: 8px;
             padding: 0;
+        }
+    }
+
+    // 功能性
+    &.is-comfirm {
+        
+        &.is-primary {
+            background: var(--success);
+            color: #fff;
+            &:hover {
+                background: var(--primary-4);
+            }
+            &.is-down {
+                background: var(--primary-5);
+            }
+            &.is-selected {
+                // 暂缺
+            }
+        }
+    }
+    &.is-cancel {
+
+        &.is-primary {
+            background: var(--fail);
+            color: #fff;
+            &:hover {
+                background: var(--primary-4);
+            }
+            &.is-down {
+                background: var(--primary-5);
+            }
+            &.is-selected {
+                // 暂缺
+            }
         }
     }
 

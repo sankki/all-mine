@@ -3,7 +3,13 @@
         <div class="am-popover__trigger" ref="linkEl">
             <slot name="trigger"></slot>
         </div>
-        <div ref="ap" class="am-popover__box" :style="apStyle" v-show="apShow">
+        <div 
+            ref="ap" 
+            class="am-popover__box" 
+            :style="apStyle" 
+            v-show="apShow"
+            :class="popoverBoxClass"
+        >
             <transition
                 name="am-popover-pop-anime"
                 @after-leave="onPopHide"
@@ -66,6 +72,10 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    popoverBoxClass: {
+        type: String,
+        default: '',
+    }
 });
 const emit = defineEmits(['update:show', 'after-hide', 'after-enter']);
 
@@ -197,7 +207,6 @@ const onPopShow = () => {
         z-index: 20;
         width: auto;
         &-pop {
-            overflow: auto;
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
             // border: 1px solid #ddd;
             background: #fff;

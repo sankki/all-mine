@@ -59,6 +59,7 @@ table {
 input,textarea,form,button {
     outline: none;
     border: none;
+    color: inherit;
 }
 
 ::-webkit-input-placeholder {
