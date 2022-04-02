@@ -42,6 +42,7 @@ const labelClass = computed(() => {
     return {
         [`is-${props.position || form.props.labelWidth}`]: true,
         'is-required': props.required,
+        [`is-${form.props.scene}`]: form.props.scene,
     };  
 })
 const labelHdStyle = computed(() => {
@@ -61,6 +62,7 @@ const labelHdStyle = computed(() => {
         display: flex;
         padding-right: 12px;
         font-size: 14px;
+        color: var(--c-main);
     }
     &__bd {
         display: flex;
@@ -92,13 +94,25 @@ const labelHdStyle = computed(() => {
                     content: '*';
                     position: absolute;
                     left: -10px;
-                    color: var(--fail);
+                    color: var(--c-fail);
                     font-family: SimSun,sans-serif;
-                    font-size: 16px;
+                    font-size: 14px;
                 }
             }
         }
     }
 
+    &.is-dark {
+        .am-form-item__hd {
+            color: var(--cd-main);
+        }
+        &.is-required {
+            .am-form-item__hd {
+                &:before {
+                    color: var(--cd-fail);
+                }
+            }
+        }
+    }
 }
 </style>

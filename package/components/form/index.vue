@@ -16,6 +16,10 @@ const props = defineProps({
         type: String,
         default: 'left',
     },
+    scene: {
+        type: String,
+        default: 'light', // light dark
+    }
 });
 provide('form', {
     props,

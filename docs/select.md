@@ -2,23 +2,20 @@
 
 常用的操作按钮。
 
-## 文本框
+## 基本用法
 
-基础的按钮用法。
-
-:::demo 使用`default`、`primary`、`plain`和`text`属性来定义 Button 的样式。
+:::demo
 ```vue
 <template>
     <AmSelect
         class="dark-select"
-        placeholder="过场模式"
         v-model:value="value"
     >
         <AmOption
             v-for="item in options"
             :item="item"
-            :key="item.name"
-            >{{ item.name }}</AmOption
+            :key="item.value"
+            >{{ item.label }}</AmOption
         >
     </AmSelect>
 </template>
@@ -27,9 +24,49 @@
 <script setup>
 import { ref } from 'vue';
 const options = ref([{
-    name: '你好',
+    label: '选项一',
+    value: 1,
+},{
+    label: '选项二',
+    value: 2,
 }]);
-const value = ref('你好');
+const value = ref(1);
+</script>
+```
+:::
+
+## 暗色模式
+
+:::demo
+```vue
+<template>
+    <div style="background: #000;padding: 16px;padding-bottom: 120px;">
+        <AmSelect
+            scene="dark"
+            class="dark-select"
+            v-model:value="value"
+        >
+            <AmOption
+                v-for="item in options"
+                :item="item"
+                :key="item.value"
+                >{{ item.label }}</AmOption
+            >
+        </AmSelect>
+    </div>
+</template>
+
+
+<script setup>
+import { ref } from 'vue';
+const options = ref([{
+    label: '选项一',
+    value: 1,
+},{
+    label: '选项二',
+    value: 2,
+}]);
+const value = ref(1);
 </script>
 ```
 :::

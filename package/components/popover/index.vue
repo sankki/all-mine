@@ -207,10 +207,10 @@ const onPopShow = () => {
         z-index: 20;
         width: auto;
         &-pop {
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--s-high);
             // border: 1px solid #ddd;
             background: #fff;
-            border-radius: 4px;
+            border-radius: 2px;
         }
     }
 }

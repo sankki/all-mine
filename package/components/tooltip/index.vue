@@ -8,6 +8,9 @@
         <slot />
         <div
             class="am-tooltip__tip"
+            :class="{
+                [`is-${scene}`]: true,
+            }"
             ref="tipEl"
             :style="tipStyle"
             @mouseenter="onMouseEnter"
@@ -56,7 +59,7 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    // 风格
+    // 模式
     mode: {
         type: String,
         default: '',
@@ -72,6 +75,11 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    // 风格
+    scene: {
+        type: String,
+        default: 'light', // light dark
+    }
 })
 const tipEl = ref(null);
 let tipElement = null;
@@ -213,16 +221,27 @@ watch(
         left: 0;
         top: 0;
         pointer-events: none;
+        user-select: none;
         &-inner {
             pointer-events: initial;
         }
         &-span {
-            background: #000;
-            color: #fff;
+            background: var(--cd-bg);
+            color: var(--cd-main);
             padding: 2px 6px;
             border-radius: 2px;
             font-size: 12px;
             display: inherit;
+        }
+
+        &.is-light {
+
+        }
+        &.is-dark {
+            .am-tooltip__tip-span {
+                background: var(--c-bg);
+                color: var(--c-main);
+            }
         }
     }
     .am-tooltip-in-leave-active {

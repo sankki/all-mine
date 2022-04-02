@@ -45,7 +45,7 @@ const props = defineProps({
     // 场景
     scene: {
         type: String,
-        default: 'light',
+        default: 'light', // light dark
     },
     // 功用
     function: {
@@ -110,9 +110,25 @@ const handleClick = (e) => {
     transition-timing-function: linear;
     box-sizing: border-box;
     line-height: 1;
+    position: relative;
+    overflow: hidden;
+    color: var(--c-main);
+    &:after {
+        content: '';
+        display: inline-flex;
+        width: 120%;
+        height: 120%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        transition: background .2s;
+    }
     &__content {
         display: flex;
         align-items: center;
+        position: relative;
+        z-index: 2;
     }
     .am-icon {
         order: 5;
@@ -135,109 +151,183 @@ const handleClick = (e) => {
     // 明朗模式
     &.is-light {
         &.is-default {
-            background: #fff;
-            color: #333;
-            border: 1px solid rgba(0,0,0,.16);
+            background: var(--c-bg);
+            color: var(--c-main);
+            border: 1px solid var(--c-border);
             &:hover {
-                background: rgba(0,0,0,.04);
+                &:after {
+                    background: rgba(0,0,0,.06);
+                }
             }
             &.is-down {
-                background: rgba(0,0,0,.08);
+                &:after {
+                    background: rgba(0,0,0,.12);
+                }
             }
             &.is-selected {
                 // 暂缺
             }
         }
         &.is-primary {
-            background: var(--primary);
+            background: var(--c-primary);
             color: #fff;
             &:hover {
-                background: var(--primary-4);
+                &:after {
+                    background: rgba(0,0,0,.2);
+                }
             }
             &.is-down {
-                background: var(--primary-5);
+                &:after {
+                    background: rgba(0,0,0,.4);
+                }
             }
             &.is-selected {
                 // 暂缺
             }
         }
         &.is-plain {
-            border: 1px solid var(--primary);
-            color: var(--primary);
+            border: 1px solid var(--c-primary);
+            color: var(--c-primary);
+            background: #fff;
             &:hover {
-                background: var(--primary-1);
+                &:after {
+                    background: rgba(0,0,0,.08);
+                }
             }
             &.is-down {
-                background: var(--primary-2);
+                &:after {
+                    background: rgba(0,0,0,.16);
+                }
             }
             &.is-selected {
                 // 暂缺
             }
         }
         &.is-text {
-            color: #333;
             &:hover {
-                background: rgba(0,0,0,.1);
+                &:after {
+                    background: rgba(0,0,0,.06);
+                }
             }
             &.is-down {
-                background: rgba(0,0,0,.16);
+                &:after {
+                    background: rgba(0,0,0,.12);
+                }
             }
             &.is-selected {
                 // 暂缺
+            }
+        }
+
+        // 功能性
+        &.is-confirm {
+            &.is-primary {
+                background: var(--c-success);
+            }
+            &.is-plain {
+                border: 1px solid var(--c-success);
+                color: var(--c-success);
+            }
+        }
+        &.is-cancel {
+            &.is-primary {
+                background: var(--c-fail);
+            }
+            &.is-plain {
+                border: 1px solid var(--c-fail);
+                color: var(--c-fail);
             }
         }
     }
     // 暗黑模式
     &.is-dark {
         &.is-default {
-            color: rgba(255,255,255,.7);
-            border: 1px solid rgba(255,255,255,.24);
-            &:hover {
-                background: rgba(255,255,255,.16);
+            background: var(--cd-bg);
+            color: var(--cd-main);
+            border: 1px solid var(--cd-border);
+             &:hover {
+                &:after {
+                    background: rgba(255,255,255,.06);
+                }
             }
             &.is-down {
-                background: rgba(255,255,255,.24);
+                &:after {
+                    background: rgba(255,255,255,.12);
+                }
             }
             &.is-selected {
                 // 暂缺
             }
         }
         &.is-primary {
-            background: var(--primary);
+            background: var(--cd-primary);
             color: #fff;
             &:hover {
-                background: var(--primary-4);
+                &:after {
+                    background: rgba(0,0,0,.15);
+                }
             }
             &.is-down {
-                background: var(--primary-5);
+                &:after {
+                    background: rgba(0,0,0,.3);
+                }
             }
             &.is-selected {
                 // 暂缺
             }
         }
         &.is-plain {
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            &:hover {
-                background: rgba(255,255,255,.16);
+            background: var(--cd-bg);
+            border: 1px solid var(--cd-primary);
+            color: var(--cd-primary);
+             &:hover {
+                &:after {
+                    background: rgba(255,255,255,.06);
+                }
             }
             &.is-down {
-                background: rgba(255,255,255,.24);
+                &:after {
+                    background: rgba(255,255,255,.12);
+                }
             }
             &.is-selected {
                 // 暂缺
             }
         }
         &.is-text {
-            color: rgba(255,255,255,.8);
-            &:hover {
-                background: rgba(255,255,255,.16);
+            color: var(--cd-main);
+             &:hover {
+                &:after {
+                    background: rgba(255,255,255,.16);
+                }
             }
             &.is-down {
-                background: rgba(255,255,255,.24);
+                &:after {
+                    background: rgba(255,255,255,.24);
+                }
             }
             &.is-selected {
                 // 暂缺
+            }
+        }
+
+        // 功能性
+        &.is-confirm {
+            &.is-primary {
+                background: var(--cd-success);
+            }
+            &.is-plain {
+                border: 1px solid var(--cd-success);
+                color: var(--cd-success);
+            }
+        }
+        &.is-cancel {
+            &.is-primary {
+                background: var(--cd-fail);
+            }
+            &.is-plain {
+                border: 1px solid var(--cd-fail);
+                color: var(--cd-fail);
             }
         }
     }
@@ -246,14 +336,14 @@ const handleClick = (e) => {
     &.is-large {
         height: 40px;
         line-height: 40px;
-        padding: 0 16px;
+        padding: 0 12px;
         font-size: 16px;
         min-width: 40px;
     }
     &.is-medium {
         height: 30px;
         line-height: 30px;
-        padding: 0 12px;
+        padding: 0 10px;
         min-width: 30px;
         font-size: 14px;
     }
@@ -261,7 +351,7 @@ const handleClick = (e) => {
         font-size: 14px;
         height: 24px;
         line-height: 24px;
-        padding: 0 8px;
+        padding: 0 6px;
         min-width: 24px;
     }
     &.is-mini {
@@ -332,40 +422,6 @@ const handleClick = (e) => {
             width: 16px;
             border-radius: 8px;
             padding: 0;
-        }
-    }
-
-    // 功能性
-    &.is-comfirm {
-        
-        &.is-primary {
-            background: var(--success);
-            color: #fff;
-            &:hover {
-                background: var(--primary-4);
-            }
-            &.is-down {
-                background: var(--primary-5);
-            }
-            &.is-selected {
-                // 暂缺
-            }
-        }
-    }
-    &.is-cancel {
-
-        &.is-primary {
-            background: var(--fail);
-            color: #fff;
-            &:hover {
-                background: var(--primary-4);
-            }
-            &.is-down {
-                background: var(--primary-5);
-            }
-            &.is-selected {
-                // 暂缺
-            }
         }
     }
 

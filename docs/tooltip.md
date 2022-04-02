@@ -17,12 +17,6 @@
         >解析</AmButton>
     </AmTooltip>
 </template>
-
-
-<script setup>
-import { ref } from 'vue';
-const value = ref('');
-</script>
 ```
 :::
 

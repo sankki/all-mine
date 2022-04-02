@@ -3,6 +3,7 @@
         class="am-input"
         :class="{
             'is-focus': isFocus,
+            [`is-${scene}`]: scene,
         }"
     >
         <!-- 主体 -->
@@ -45,12 +46,19 @@ import {
 
 const props = defineProps({
     value: String,
-    placeholder: String,
+    placeholder: {
+        type: String,
+        default: '请输入'
+    },
     type: String,
     autosize: {
         type: Boolean,
         default: true,
     },
+    scene: {
+        type: String,
+        default: 'light', // light dark
+    }
 });
 const emit = defineEmits([
     'update:value',
@@ -110,8 +118,9 @@ watch(
     display: flex;
     flex-direction: column;
     &__inner {
-        border: 1px solid #e0e0e0;
-        background: #f7f7f7;
+        border: 1px solid var(--c-border);
+        background: var(--c-bglight);
+        color: var(--c-main);
         display: inline-flex;
         transition: border 0s;
         position: relative;
@@ -125,6 +134,8 @@ watch(
             padding: 0 8px;
             height: 28px;
             line-height: 20px;
+            position: relative;
+            z-index: 2;
         }
         textarea {
             width: 100%;
@@ -135,21 +146,62 @@ watch(
             line-height: 20px;
             font-size: 14px;
             border: none;
+            position: relative;
+            z-index: 2;
+        }
+        &:after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            width: calc(100% + 2px);
+            height: calc(100% + 2px);
+            left: -1px;
+            top: -1px;
+            z-index: 1;
+            outline: 2px solid rgba(0,0,0,0);
+            border-radius: 2px;
+            opacity: .2;
         }
     }
     // 修饰
     &:hover {
-        .am-input__inner {
-            // border: 1px solid #333;
-            // border: 1px solid #78a2e9;
-            // background: #ddd;
-        }
     }
     &.is-focus {
         .am-input__inner {
-            border: 1px solid #3375e5;
-            outline: 2px solid #bfd0f0;
+            border: 1px solid var(--c-primary);
+            &:after {
+                outline-color: var(--c-primary);
+            }
         }
+    }
+
+    &.is-dark {
+        .am-input__inner {
+            border: 1px solid var(--cd-border);
+            background: var(--cd-bglight);
+            color: var(--cd-main);
+        }
+        &.is-focus {
+            .am-input__inner {
+                border: 1px solid var(--cd-primary);
+                &:after {
+                    outline-color: var(--cd-primary);
+                    opacity: .4;
+                }
+            }
+        }
+        ::-webkit-input-placeholder {
+            color: var(--cd-placeholder);
+        }
+        ::-moz-placeholder {
+            color: var(--cd-placeholder);
+        }
+    }
+    ::-webkit-input-placeholder {
+        color: var(--c-placeholder);
+    }
+    ::-moz-placeholder {
+        color: var(--c-placeholder);
     }
 }
 </style>

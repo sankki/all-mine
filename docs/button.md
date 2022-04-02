@@ -9,13 +9,33 @@
 :::demo 使用`default`、`primary`、`plain`和`text`属性来定义 Button 的样式。
 ```vue
 <template>
-  <AmButton>默认按钮</AmButton>
-  <AmDivider margin="8px"/>
-  <AmButton mode="primary">主题色按钮</AmButton>
-  <AmDivider margin="8px"/>
-  <AmButton mode="plain">描边按钮</AmButton>
-  <AmDivider margin="8px"/>
-  <AmButton mode="text">文本按钮</AmButton>
+  <div style="margin-bottom:16px;">
+    <AmButton>默认按钮</AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="primary">主题色按钮</AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="plain">描边按钮</AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="text">文本按钮</AmButton>
+  </div>
+  <div>
+    <AmButton icon="close" sharp="square"></AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="primary" icon="close" sharp="square"></AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="plain" icon="close" sharp="square"></AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="text" icon="close" sharp="square"></AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton icon="close" sharp="square" size="small"></AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="primary" icon="close" sharp="square" size="small"></AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="plain" icon="close" sharp="square" size="small"></AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="text" icon="close" sharp="square" size="small"></AmButton>
+
+  </div>
 </template>
 ```
 
@@ -29,13 +49,13 @@
 
 ```vue
 <template>
-  <AmButton size="large">默认按钮</AmButton>
+  <AmButton size="large">大按钮</AmButton>
   <AmDivider margin="8px"/>
-  <AmButton>主题色按钮</AmButton>
+  <AmButton>按钮</AmButton>
   <AmDivider margin="8px"/>
-  <AmButton size="small">描边按钮</AmButton>
+  <AmButton size="small">小按钮</AmButton>
   <AmDivider margin="8px"/>
-  <AmButton size="mini">文本按钮</AmButton>
+  <AmButton size="mini">迷你按钮</AmButton>
 </template>
 ```
 
@@ -60,36 +80,74 @@
 ```
 :::
 
-## 环境色
+## 功能按钮
 
-按钮在黑白环境色下的表现是不一致的。
+点击按钮进行数据加载操作，在按钮上面显示加载状态。
 
 :::demo
 
 ```vue
 <template>
-  <div style="background: #fff;padding: 16px;">
-    <AmButton>默认按钮</AmButton>
-    <AmDivider margin="8px"/>
-    <AmButton mode="primary">主题色按钮</AmButton>
-    <AmDivider margin="8px"/>
-    <AmButton mode="plain">描边按钮</AmButton>
-    <AmDivider margin="8px"/>
-    <AmButton mode="text">文本按钮</AmButton>
-  </div>
+  <AmButton mode="primary" function="confirm">确认</AmButton>
+  <AmDivider margin="8px"/>
+  <AmButton mode="primary" function="cancel">删除</AmButton>
+  <AmDivider margin="8px"/>
+  <AmButton mode="plain" function="confirm">确认</AmButton>
+  <AmDivider margin="8px"/>
+  <AmButton mode="plain" function="cancel">删除</AmButton>
+</template>
+```
+:::
 
+## 暗色模式
+
+:::demo
+
+```vue
+<template>
   <div style="background: #000;padding: 16px;">
-    <AmButton scene="dark">默认按钮</AmButton>
-    <AmDivider margin="8px"/>
-    <AmButton scene="dark" mode="primary">主题色按钮</AmButton>
-    <AmDivider margin="8px"/>
-    <AmButton scene="dark" mode="plain">描边按钮</AmButton>
-    <AmDivider margin="8px"/>
-    <AmButton scene="dark" mode="text">文本按钮</AmButton>
+    <div style="margin-bottom:16px;">
+      <AmButton scene="dark">默认按钮</AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="primary" scene="dark">主题色按钮</AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="plain" scene="dark">描边按钮</AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="text" scene="dark">文本按钮</AmButton>
+    </div>
+    <div style="margin-bottom:16px;">
+      <AmButton icon="close" sharp="square" scene="dark"></AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="primary" icon="close" sharp="square" scene="dark"></AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="plain" icon="close" sharp="square" scene="dark"></AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="text" icon="close" sharp="square" scene="dark"></AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton icon="close" sharp="square" size="small" scene="dark"></AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="primary" icon="close" sharp="square" size="small" scene="dark"></AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="plain" icon="close" sharp="square" size="small" scene="dark"></AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="text" icon="close" sharp="square" size="small" scene="dark"></AmButton>
+    </div>
+    <div>
+      <AmButton mode="primary" function="confirm" scene="dark">确认</AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="primary" function="cancel" scene="dark">删除</AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="plain" function="confirm" scene="dark">确认</AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="plain" function="cancel" scene="dark">删除</AmButton>
+    </div>
   </div>
 </template>
 ```
 :::
+
+
+
 
 ## 属性
 

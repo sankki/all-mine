@@ -40,6 +40,28 @@ xux!`);
 ```
 :::
 
+## 暗色模式
+
+:::demo
+```vue
+<template>
+    <div style="background: #000;padding: 16px;">
+        <AmInput
+            scene="dark"
+            v-model:value="value" 
+        />
+    </div>
+</template>
+
+
+<script setup>
+import { ref } from 'vue';
+const value = ref('');
+</script>
+```
+:::
+
+
 ## 属性
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

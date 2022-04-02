@@ -1,12 +1,8 @@
-# Table 表格
+# Form 表单
 
-常用的操作按钮。
+## 基本用法
 
-## 文本框
-
-基础的按钮用法。
-
-:::demo 使用`default`、`primary`、`plain`和`text`属性来定义 Button 的样式。
+:::demo
 ```vue
 <template>
     <AmForm position="top" label-width="80px">
@@ -20,6 +16,38 @@
             <AmInput v-model="value" :value="value" :match="/^[0-9]*$/"/>
         </AmFormItem>
     </AmForm>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                value: '1234567890'
+            }
+        }
+    }
+</script>
+```
+:::
+
+## 暗色模式
+
+:::demo
+```vue
+<template>
+    <div style="background: #000;padding: 16px;">
+        <AmForm position="top" label-width="80px" scene="dark">
+            <AmFormItem label="姓名">
+                <AmInput scene="dark" v-model="value" :value="value" :match="/^[0-9]*$/"/>
+            </AmFormItem>
+            <AmFormItem label="账号" position="left" required>
+                <AmInput scene="dark" v-model="value" :value="value" :match="/^[0-9]*$/"/>
+            </AmFormItem>
+            <AmFormItem label="密码" position="right" required>
+                <AmInput scene="dark" v-model="value" :value="value" :match="/^[0-9]*$/"/>
+            </AmFormItem>
+        </AmForm>
+    </div>
 </template>
 
 <script>

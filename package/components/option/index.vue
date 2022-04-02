@@ -62,33 +62,3 @@ const clickOption = () => {
     }, 1000)
 }
 </script>
-
-<style lang="scss">
-.am-option {
-    user-select: none;
-    padding: 5px 8px;
-    font-size: 13px;
-    line-height: 24px;
-    position: relative;
-    cursor: pointer;
-    padding-right: 24px;
-    color: #fff;
-    &__check {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 2px;
-        margin: auto;
-        color: #7beb64;
-    }
-    &:hover {
-        background: rgba(255,255,255,.1);
-    }
-    &.is-selected {
-
-    }
-    &.is-multiple {
-        padding-right: 32px;
-    }
-}
-</style>

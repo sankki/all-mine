@@ -1,5 +1,11 @@
 <template>
-    <div class="am-popup" ref="pop">
+    <div 
+        class="am-popup"
+        :class="{
+            [`is-${scene}`]: scene,
+        }"
+        ref="pop"
+    >
         <!-- 遮掩层 -->
         <transition name="mask-anime">
             <div
@@ -11,18 +17,20 @@
         <!-- 主体 -->
         <transition name="popup-anime" v-on:after-leave="afterLeave">
             <div class="am-popup__popup" :style="popupStyle" v-show="show">
-                <!-- <AmButton
-                    mode="icon-btn-dark"
-                    icon="close"
-                    size="big"
-                    v-if="showCloseBtn"
-                    class="am-popup__close"
-                    @click="close"
-                /> -->
                 <div class="am-popup__inner" v-clickoutside="clickMask">
                     <div class="am-popup__hd" v-if="$slots.hd || title">
                         <div class="am-popup__title" v-if="title">{{ title }}</div>
                         <slot name="hd" />
+                        <AmButton
+                            mode="text"
+                            icon="close"
+                            icon-size="16px"
+                            :scene="scene"
+                            size="small"
+                            v-if="showCloseBtn"
+                            class="am-popup__close"
+                            @click="close"
+                        />
                     </div>
                     <div class="am-popup__bd">
                         <slot />
@@ -40,6 +48,7 @@
 import {
     defineProps, ref, computed, watch, onMounted, defineEmits,
 } from 'vue';
+import AmButton from '../button/index.vue';
 import popupManager from '../../common/popup-manager';
 import clickoutside from '../../directives/clickoutside/index';
 const vClickoutside = clickoutside;
@@ -81,6 +90,11 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    // 场景
+    scene: {
+        type: String,
+        default: 'light', // light dark
+    },
 });
 const zIndex = ref(popupManager.getZIndex());
 const popupStyle = computed(() => ({
@@ -114,6 +128,7 @@ const clickMask = () => {
 
 <style lang="scss">
 .am-popup {
+    color: var(--c-main);
     // 阴影
     &__mask {
         position: fixed;
@@ -161,21 +176,27 @@ const clickMask = () => {
         border-radius: 2px;
     }
     &__hd {
+        position: relative;
     }
     &__title {
         margin: auto;
         font-size: 16px;
+        line-height: 20px;
         font-weight: bold;
         display: flex;
         align-items: center;
-        padding: 24px 24px 0 24px;
+        padding: 16px 24px 0 24px;
+        color: var(--c-main);
     }
     &__close {
         position: absolute;
-        right: -48px;
-        top: 16px;
+        right: 16px;
+        bottom: -2px;
         margin: auto;
         z-index: 10;
+        width: 20px;
+        height: 20px;
+        padding: 0!important;
     }
     &__bd {
         flex: 1;
@@ -189,6 +210,16 @@ const clickMask = () => {
         padding-top: 0;
         > .am-button {
             margin-left: 8px;
+        }
+    }
+
+    &.is-dark {
+        color: var(--cd-main);
+        .am-popup__inner {
+            background: #222;
+        }
+        .am-popup__title {
+            color: var(--cd-main);
         }
     }
 }

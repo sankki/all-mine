@@ -23,6 +23,9 @@ import AmList from './components/list/index.vue';
 import AmListItem from './components/list-item/index.vue';
 import AmWaterfall from './components/waterfall/index.vue';
 import AmDropdown from './components/dropdown/index.vue';
+import AmSwitch from './components/switch/index.vue';
+import AmRadio from './components/radio/index.vue';
+
 
 import AmMessage from './components/message/index';
 import AmLoading from './components/loading/index';
@@ -61,6 +64,8 @@ export default {
         app.component('AmListItem', AmListItem);
         app.component('AmWaterfall', AmWaterfall);
         app.component('AmDropdown', AmDropdown);
+        app.component('AmSwitch', AmSwitch);
+        app.component('AmRadio', AmRadio);
 
         app.directive('clickoutside', clickoutside);
         app.directive('clickanime', clickanime);
@@ -69,4 +74,36 @@ export default {
         app.use(AmLoading);
         app.use(AmDialog);
     },
+    AmIcon,
+    AmButton,
+    AmIcon,
+    AmButton,
+    AmInput,
+    AmTable ,
+    AmTableColumn,
+    AmPopover,
+    AmTab,
+    AmSelect,
+    AmOption,
+    AmTooltip,
+    AmDivider,
+    AmPopup,
+    AmProgress,
+    AmCheckbox,
+    AmMenu,
+    AmMenuItem,
+    AmPagination,
+    AmLogo ,
+    AmForm,
+    AmFormItem,
+    AmAvatar,
+    AmList,
+    AmListItem,
+    AmWaterfall,
+    AmDropdown ,
+    AmMessage,
+    AmLoading,
+    AmDialog,
+    AmSwitch,
+    AmRadio,
 };

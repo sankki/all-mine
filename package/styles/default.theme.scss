@@ -1,35 +1,62 @@
 :root {
+    /*
+     * 颜色
+     */
     // 主题色
-    --primary-1: #edf2f8;
-    --primary-2: #dfe8f8;
-    --primary: #3479f6;
-    --primary-4: #2d6ce0;
-    --primary-5: #1c57c4;
+    --c-primary:      #1E44C2;
+    --cd-primary:     #4582E6;
 
-    // 系统色
-    --success: #10A370;
-    --warning: #AD4D0C;
-    --fail: #D92424;
-    --info: #0C6BC9;
+    // 功能色
+    --c-success:      #10a341; // 成功
+    --c-warning:      #050505; // 警告
+    --c-fail:         #D92424; // 失败
+    --cd-success:     #1aba4d; // 成功
+    --cd-warning:     #db732e; // 警告
+    --cd-fail:        #fa4747; // 失败
+    
+    // 彩虹色
+    --c-red:          #e34d59;
+    --c-orange:       #ed7b2f;
+    --c-yellow:       #ebb105;
+    --c-green:        #00a870;
+    --c-blue:         #0594fa;
+    --c-purple:       #834ec2;
+    --c-pink:         #ed49b4;
+    --cd-red:         #f57681;
+    --cd-orange:      #f58f4c;
+    --cd-yellow:      #fac936;
+    --cd-green:       #2ad39b;
+    --cd-blue:        #3fa6f0;
+    --cd-purple:      #9e64e4;
+    --cd-pink:        #fa67c7;
+
+    // 背景色
+    --c-bg:           #fff; // 主色背景
+    --c-bglight:      #f7f7f7; // 浅色背景
+    --c-bgdark:       #ddd;
+    --cd-bg:          #222; // 主色背景
+    --cd-bglight:     #333; // 浅色背景
 
     // 字体色
-    --fcolor-0: #000; // 最深文字
-    --fcolor-1: #333; // 正文
-    --fcolor-2: #666; // 副文
-    --fcolor-3: #999; // 提示文
-    --placeholder: #999; // 默认输入的文字
+    --c-main:         #333; // 主色
+    --c-sub:          #666; // 二级色
+    --c-sup:          #999; // 辅助色
+    --c-placeholder:  #aaa; // 默认文字颜色
+    --cd-main:        #fff; // 主色
+    --cd-sub:         #ccc; // 二级色
+    --cd-sup:         #999; // 辅助色
+    --cd-placeholder: #888; // 默认文字颜色
 
-    // 边框色
-    --border: #e5e5e5;
+    // 装饰色
+    --c-border:       #ddd; // 边框色
+    --cd-border:      #444; // 边框色
 
-    // 灰背景色
-    --light-bg: #f5f5f5;
-    --gray-bg: #ccc;
-
-    // 三层阴影
-    --shadow-1: 0px 4px 12px rgba(0, 0, 0, 0.13); // 低层
-    --shadow-2: 0px 4px 12px rgba(0, 0, 0, 0.10); // 中层
-    --shadow-3: 0px 4px 12px rgba(0, 0, 0, 0.07); // 高层
+    /*
+     * 阴影
+     */
+    --s-low:     0px 4px 12px rgba(0, 0, 0, 0.13); // 低层
+    --s-middle:  0px 4px 12px rgba(0, 0, 0, 0.10); // 中层
+    --s-high:   0px 4px 12px rgba(0, 0, 0, 0.07); // 高层
 
     // 默认字体
     --font-family: -apple-system,BlinkMacSystemFont,

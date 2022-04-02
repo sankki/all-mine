@@ -12,11 +12,26 @@
     <AmPopup
         width="480px"
         v-model:show="show"
-        :title="title"
+        title="弹出框"
         @after-leave="afterLeave"
     >
         123
     </AmPopup>
+
+
+    <AmPopup
+        width="480px"
+        v-model:show="show2"
+        scene="dark"
+        title="弹出框2"
+        @after-leave="afterLeave"
+    >
+        123
+    </AmPopup>
+
+    <AmButton @click="showChange">显示隐藏</AmButton>
+
+    <AmButton @click="showChange2">显示隐藏2</AmButton>
 </template>
 
 
@@ -24,8 +39,12 @@
 import { ref, inject } from 'vue';
 const $message = inject('$message');
 const show = ref(false);
-const handleClick = () => {
-    $message.success('删除成功');
+const show2 = ref(false);
+const showChange = () => {
+    show.value = !show.value;
+}
+const showChange2 = () => {
+    show2.value = !show2.value;
 }
 </script>
 ```

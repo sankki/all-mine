@@ -1,6 +1,9 @@
 <template>
     <div
         class="am-divider"
+        :class="{
+            [`is-${scene}`]: scene,
+        }"
         :style="'margin:' + margin + ';font-size:' + size + ';color:' + color"
     >
         <span v-if="content">
@@ -38,6 +41,10 @@ defineProps({
         type: Boolean,
         default: false,
     },
+    scene: {
+        type: String,
+        default: 'light',
+    }
 });
 </script>
 

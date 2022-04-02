@@ -3,6 +3,7 @@
         class="am-radio"
         :class="{
             ['is-active']: selected,
+            [`is-${scene}`]: scene,
         }"
         @click.stop="handleClick"
     >
@@ -45,6 +46,11 @@ const props = defineProps({
     },
     // 值
     label: null,
+    // 场景
+    scene: {
+        type: String,
+        default: 'light', // light dark
+    }
 });
 
 const selected = computed(() => {
@@ -77,7 +83,7 @@ const handleClick = () => {
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 2px;
+        border-radius: 50%;
         border: 1px solid var(--border);
         transition: border .2s, background .2s;
         background: #fff;
@@ -90,6 +96,7 @@ const handleClick = () => {
     &__text {
         margin-left: 6px;
         font-size: 14px;
+        color: var(--c-main);
     }
 
     .am-checkbox-anime-enter-active {
@@ -121,6 +128,17 @@ const handleClick = () => {
             background: var(--primary);
             border-color: var(--primary);
         }
+    }
+
+    &.is-dark {
+        .am-radio__box {
+
+        }
+        .am-radio__text {
+            color: var(--cd-main);
+        }
+
+
     }
 }
 </style>

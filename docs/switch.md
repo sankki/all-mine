@@ -1,38 +1,29 @@
-# Radio 单选框
+# Switch 开关
 
-常用的操作按钮。
-
-## 文本框
-
-基础的按钮用法。
+## 基本使用
 
 :::demo 使用`default`、`primary`、`plain`和`text`属性来定义 Button 的样式。
 ```vue
 <template>
-    <AmRadio v-model:value="value">
-    选项
-    </AmRadio>
+    <AmSwitch v-model:value="value">开关</AmSwitch>
 </template>
 
 
 <script setup>
 import { ref } from 'vue';
-const value = ref(false);
+const value = ref(true);
 </script>
 ```
 :::
 
+
 ## 暗色模式
 
-:::demo 使用`default`、`primary`、`plain`和`text`属性来定义 Button 的样式。
+:::demo
 ```vue
 <template>
     <div style="background: #000;padding: 16px;">
-        <AmRadio 
-            scene="dark"
-        v-model:value="value">
-        选项
-        </AmRadio>
+        <AmSwitch scene="dark" v-model:value="value">开关</AmSwitch>
     </div>
 </template>
 

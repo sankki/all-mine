@@ -6,7 +6,7 @@
     >
         <!-- 下拉框内容 -->
         <AmPopover 
-            popover-box-class="am-dropdown-box"
+            :popover-box-class="`am-dropdown__popover is-${scene} ${popoverBoxClass}`"
             v-model:show="dropdownShow"
         >
             <template v-slot:trigger>
@@ -22,8 +22,8 @@
                     </div>
                 </div>
             </template>
-            <div class="am-dropdown__popover" @click="clickPopover">
-                <slot/>
+            <div class="am-dropdown__popover-inner" @click="clickPopover">
+                <slot />
             </div>
         </AmPopover>
     </div>
@@ -39,6 +39,14 @@ const props = defineProps({
     triggerMode: {
         type: String,
         default: 'default', // default 默认 none 无
+    },
+    scene: {
+        type: String,
+        default: 'light', // light dark
+    },
+    popoverBoxClass: {
+        type: String,
+        default: '',
     }
 });
 
@@ -47,6 +55,7 @@ const dropdownShow = ref(false);
 const isFocus = computed(() => dropdownShow.value);
 const asClass = computed(() => ({
     'is-focus': isFocus.value,
+    [`is-${props.scene}`]: props.scene,
 }));
 const triggerClass = computed(() => {
     return {
@@ -76,21 +85,24 @@ const clickPopover = () => {
 .am-dropdown {
     width: 230px;
     &__trigger {
+        display: flex;
         &-icon {
             display: none;
         }
         &.is-default {
+            height: 29px;
             width: 100%;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 1px 0 0 #ddd;
+            border: 1px solid var(--c-border);
+            box-shadow: 0 1px 0 0 var(--c-border);
+            color: var(--c-main);
+            background: var(--c-bg);
             user-select: none;
             cursor: pointer;
             transition: border 0s;
             font-size: 14px;
             display: flex;
             align-items: center;
-            border-radius: 4px;
-            background: #fff;
+            border-radius: 2px;
             padding-right: 24px;
             padding-left: 8px;
             position: relative;
@@ -107,21 +119,65 @@ const clickPopover = () => {
                 justify-content: center;
                 transition: transform .2s;
             }
+            &:after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                width: calc(100% + 2px);
+                height: calc(100% + 2px);
+                left: -1px;
+                top: -1px;
+                z-index: 1;
+                outline: 2px solid rgba(0,0,0,0);
+                border-radius: 2px;
+                opacity: .2;
+            }
         }
     }
     &.is-focus {
         .am-dropdown__trigger.is-default {
-            border: 1px solid #3375e5;
-            outline: 2px solid #bfd0f0;
+            border: 1px solid var(--c-primary);
             .am-dropdown__trigger-icon {
                 transform: rotate(180deg);
+                color: var(--c-primary);
+            }
+            &:after {
+                outline-color: var(--c-primary);
+            }
+        }
+    }
+    &.is-dark {
+        .am-dropdown__trigger {
+            &.is-default {
+                height: 30px;
+                border: 1px solid var(--cd-border);
+                box-shadow: 0 0px 0 0 var(--cd-border);
+                background: var(--cd-bg);
+                color: var(--cd-main);
+            }
+        }
+        &.is-focus {
+            .am-dropdown__trigger.is-default {
+                border: 1px solid var(--cd-primary);
+                .am-dropdown__trigger-icon {
+                    color: var(--cd-primary);
+                }
+                &:after {
+                    outline-color: var(--cd-primary);
+                    opacity: .4;
+                }
             }
         }
     }
 }
-.am-dropdown-box {
+.am-dropdown__popover {
     .am-popover__box-pop {
-        background: rgba(0, 0, 0, 0.95);
+        background: var(--cd-bg);
+    }
+    &.is-dark {
+        .am-popover__box-pop {
+            background: var(--c-bg);
+        } 
     }
 }
 </style>
