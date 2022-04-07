@@ -61,10 +61,10 @@ const clickTab = (item) => {
         font-size: 13px;
         padding: 0 8px;
         // border: 1px solid rgba(0,0,0,0);
-        color: #666;
+        color: var(--c-sub);
         &.is-active {
             background: #eee;
-            color: #000;
+            color: var(--c-main);
             font-weight: bold;
             // background: var(--primary);
             // color: #fff;

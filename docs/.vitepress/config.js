@@ -12,6 +12,7 @@ module.exports = {
                     { text: '按钮', link: '/button' },
                     { text: '图标', link: '/icon' },
                     { text: '分隔符', link: '/divider' },
+                    { text: '标签', link: '/tag' },
                 ],
                 sidebarDepth:3
             },

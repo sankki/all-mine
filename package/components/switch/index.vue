@@ -41,7 +41,6 @@ const handleClick = () => {
 .am-switch {
     display: inline-flex;
     align-items: center;
-    height: 32px;
     user-select: none;
     cursor: pointer;
     &__switch {

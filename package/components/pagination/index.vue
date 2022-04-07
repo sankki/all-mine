@@ -177,11 +177,11 @@ const changePageSize = (value) => {
         padding: 0;
         // 选中状态
         &.is-active.am-button {
-            background: var(--primary);
+            background: var(--c-primary);
             color: #fff;
             border: none;
             &:hover {
-                background: var(--primary);
+                background: var(--c-primary);
             }
         }
     }

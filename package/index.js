@@ -25,7 +25,7 @@ import AmWaterfall from './components/waterfall/index.vue';
 import AmDropdown from './components/dropdown/index.vue';
 import AmSwitch from './components/switch/index.vue';
 import AmRadio from './components/radio/index.vue';
-
+import AmTag from './components/tag/index.vue';
 
 import AmMessage from './components/message/index';
 import AmLoading from './components/loading/index';
@@ -66,6 +66,7 @@ export default {
         app.component('AmDropdown', AmDropdown);
         app.component('AmSwitch', AmSwitch);
         app.component('AmRadio', AmRadio);
+        app.component('AmTag', AmTag);
 
         app.directive('clickoutside', clickoutside);
         app.directive('clickanime', clickanime);
@@ -106,4 +107,5 @@ export default {
     AmDialog,
     AmSwitch,
     AmRadio,
+    AmTag,
 };

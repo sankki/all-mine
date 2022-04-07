@@ -106,7 +106,7 @@ const handleClick = () => {
         align-items: center;
         justify-content: center;
         border-radius: 2px;
-        border: 1px solid var(--border);
+        border: 1px solid var(--c-border);
         transition: border .2s, background .2s;
         background: #fff;
         .am-icon {
@@ -141,13 +141,13 @@ const handleClick = () => {
     // 状态
     &:hover {
         .am-checkbox__box {
-            border-color: var(--primary);
+            border-color: var(--c-primary);
         }
     }
     &.is-active {
         .am-checkbox__box {
-            background: var(--primary);
-            border-color: var(--primary);
+            background: var(--c-primary);
+            border-color: var(--c-primary);
         }
     }
 }

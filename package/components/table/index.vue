@@ -161,7 +161,8 @@ const Cell = defineComponent({
         border: none;
     }
     &__hd {
-        border: 1px solid #ddd;
+        border: 1px solid var(--c-border);
+        background: var(--c-bglight);
         > table {
             width: 100%;
             table-layout: fixed;
@@ -170,11 +171,11 @@ const Cell = defineComponent({
             > thead {
                 > tr {
                     > th {
-                        padding: 12px 16px;
-                        color: #999;
+                        padding: 8px 12px;
+                        color: var(--c-sub);
                         font-size: 14px;
                         text-align: left;
-                        border-right: 1px solid #ddd;
+                        border-right: 1px solid var(--c-border);
                         &:nth-last-child(1), &:nth-last-child(2) {
                             border-right: none;
                         }
@@ -184,7 +185,7 @@ const Cell = defineComponent({
         }
     }
     &__bd {
-        border: 1px solid #ddd;
+        border: 1px solid var(--c-border);
         border-top: none;
         > table {
             width: 100%;
@@ -193,12 +194,13 @@ const Cell = defineComponent({
             margin: 0;
             > tbody {
                 > tr {
-                    border-bottom: 1px solid #ddd;
+                    border-bottom: 1px solid var(--c-border);
                     > td {
-                        padding: 12px 16px;
+                        padding: 8px 12px;
                         font-size: 14px;
                         text-align: left;
-                        border-right: 1px solid #ddd;
+                        color: var(--c-main);
+                        border-right: 1px solid var(--c-border);
                         &:nth-last-child(1) {
                             border-right: none;
                         }

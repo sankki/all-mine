@@ -83,7 +83,7 @@ const clickPopover = () => {
 
 <style lang="scss">
 .am-dropdown {
-    width: 230px;
+    width: 100%;
     &__trigger {
         display: flex;
         &-icon {

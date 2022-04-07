@@ -348,7 +348,7 @@ const handleClick = (e) => {
         font-size: 14px;
     }
     &.is-small {
-        font-size: 14px;
+        font-size: 13px;
         height: 24px;
         line-height: 24px;
         padding: 0 6px;
