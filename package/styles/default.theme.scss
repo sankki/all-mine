@@ -8,11 +8,13 @@
 
     // 功能色
     --c-success:      #10a341; // 成功
-    --c-warning:      #050505; // 警告
+    --c-warning:      #ed7b2f; // 警告
     --c-fail:         #D92424; // 失败
+    --c-info:         #0594fa; // 消息
     --cd-success:     #1aba4d; // 成功
-    --cd-warning:     #db732e; // 警告
+    --cd-warning:     #ed7b2f; // 警告
     --cd-fail:        #fa4747; // 失败
+    --cd-info:        #0594fa; // 消息
     
     // 彩虹色
     --c-red:          #e34d59;
@@ -40,11 +42,11 @@
     // 字体色
     --c-main:         #333; // 主色
     --c-sub:          #666; // 二级色
-    --c-sup:          #999; // 辅助色
+    --c-sup:          #aaa; // 辅助色
     --c-placeholder:  #aaa; // 默认文字颜色
     --cd-main:        #fff; // 主色
     --cd-sub:         #ccc; // 二级色
-    --cd-sup:         #999; // 辅助色
+    --cd-sup:         #888; // 辅助色
     --cd-placeholder: #888; // 默认文字颜色
 
     // 装饰色

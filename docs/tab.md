@@ -17,19 +17,19 @@
 import { ref, inject } from 'vue';
 const tabs = ref([
     {
-        name: '全部',
+        label: '全部',
         value: 1,
     },
     {
-        name: '技术教程',
+        label: '技术教程',
         value: 2,
     },
     {
-        name: '学习课程',
+        label: '学习课程',
         value: 3,
     },
     {
-        name: '产品运营',
+        label: '产品运营',
         value: 4,
     },
 ]);

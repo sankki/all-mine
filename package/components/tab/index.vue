@@ -10,12 +10,7 @@
             :key="index"
             @click="clickTab(item)"
         >
-            <Icon
-                v-if="item.icon"
-                :name="item.icon"
-                :size="item.iconSize"
-            ></Icon>
-            <span v-else>{{ item.name }}</span>
+            <span>{{ item.label }}</span>
         </div>
     </div>
 </template>
@@ -29,9 +24,7 @@ defineProps({
         default: () => [
             {
                 value: '',
-                name: '',
-                icon: '',
-                iconSize: '',
+                label: '',
             },
         ],
     },
@@ -62,16 +55,38 @@ const clickTab = (item) => {
         padding: 0 8px;
         // border: 1px solid rgba(0,0,0,0);
         color: var(--c-sub);
+        position: relative;
+        overflow: hidden;
+        transition: background .1s;
+        span {
+            position: relative;
+            z-index: 2;
+        }
+        &::before {
+            content: '';
+            display: inline-flex;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--c-primary);
+            opacity: 0;
+            transition: opacity .1s;
+        }
         &.is-active {
-            background: #eee;
-            color: var(--c-main);
+            // background: var(--c-primary);
+            color: var(--c-primary);
             font-weight: bold;
             // background: var(--primary);
             // color: #fff;
             // border-color: #ddd;
+            &::before {
+                opacity: .1;
+            }
         }
         &:hover:not(.is-active) {
-            // background: #eee;
+            background: var(--c-bglight);
         }
     }
 }

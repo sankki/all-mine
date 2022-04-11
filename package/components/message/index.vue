@@ -103,7 +103,7 @@ defineExpose({
         left: 50%;
         transform: translate(-50%, calc(12vh));
         background: #fff;
-        color: #333;
+        color: var(--c-main);
         border-radius: 4px;
         max-width: 480px;
         min-width: 240px;
@@ -120,26 +120,27 @@ defineExpose({
             margin-right: 4px;
         }
         &--success {
-            border: 1px solid #7ed9b0;
-            color: var(--success);
+            border: 1px solid var(--c-success);
+            color: var(--c-success);
             background: #e3fcef;
         }
         &--fail {
-            border: 1px solid #fc847c;
-            color: var(--fail);
+            border: 1px solid var(--c-fail);
+            color: var(--c-fail);
             background: #fff2f0;
         }
         &--info {
             border: 1px solid #8ad0ff;
-            color: var(--info);
+            color: var(--c-info);
             background: #e6f7ff;
         }
         &--warning {
-            border: 1px solid #ffce96;
-            color: var(--warning);
+            border: 1px solid var(--c-warning);
+            color: var(--c-warning);
             background: #fff6e8;
         }
     }
+
     &__anime-enter-active {
         animation: message-in 0.2s;
     }

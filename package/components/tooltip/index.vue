@@ -39,7 +39,7 @@ import {
     observeElResize,
     offObserveElResize,
 } from '../../utils/dom'
-import { defineProps, ref, computed, onMounted, watch } from 'vue'
+import { defineProps, ref, computed, onMounted, watch, onUnmounted } from 'vue'
 import popupManager from '../../common/popup-manager'
 
 const props = defineProps({
@@ -127,6 +127,9 @@ const tipStyle = computed(() => {
 onMounted(() => {
     document.body.appendChild(tipEl.value);
     tipElement = tipEl.value;
+})
+onUnmounted(() => {
+    tipElement && tipElement.remove();
 })
 
 const onMouseEnter = () => {

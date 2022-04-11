@@ -13,6 +13,9 @@
         <AmListItem>🎀 产品策划</AmListItem>
         <AmListItem>💎 商业报告</AmListItem>
     </AmList>
+    <AmListStatus is-loading />
+    <AmListStatus is-end />
+    <AmListStatus is-empty />
 </template>
 
 

@@ -8,6 +8,8 @@
         <AmPopover 
             :popover-box-class="`am-dropdown__popover is-${scene} ${popoverBoxClass}`"
             v-model:show="dropdownShow"
+            :x-direction="xDirection"
+            :y-direction="yDirection"
         >
             <template v-slot:trigger>
                 <div 
@@ -22,7 +24,10 @@
                     </div>
                 </div>
             </template>
-            <div class="am-dropdown__popover-inner" @click="clickPopover">
+            <div 
+                class="am-dropdown__popover-inner" 
+                @click="clickPopover"
+            >
                 <slot />
             </div>
         </AmPopover>
@@ -31,7 +36,7 @@
 
 <script setup>
 import {
-    defineProps, ref, reactive, computed, defineEmits, provide, nextTick
+    defineProps, ref, reactive, computed, defineEmits, nextTick, defineExpose
 } from 'vue';
 
 const props = defineProps({
@@ -47,7 +52,15 @@ const props = defineProps({
     popoverBoxClass: {
         type: String,
         default: '',
-    }
+    },
+    xDirection: {
+        type: String,
+        default: 'left',
+    },
+    yDirection: {
+        type: String,
+        default: 'auto',
+    },
 });
 
 const dropdownShow = ref(false);
@@ -78,7 +91,17 @@ const clickPopover = () => {
         timer = null;
     }
     dropdownShow.value = true;
+    console.log('触发了');
 }
+const hideDropdown = () => {
+    timer = setTimeout(() => {
+        dropdownShow.value = false;
+    },16);
+}
+
+defineExpose({
+    hideDropdown,
+});
 </script>
 
 <style lang="scss">
@@ -90,7 +113,7 @@ const clickPopover = () => {
             display: none;
         }
         &.is-default {
-            height: 29px;
+            min-height: 29px;
             width: 100%;
             border: 1px solid var(--c-border);
             box-shadow: 0 1px 0 0 var(--c-border);
@@ -106,6 +129,7 @@ const clickPopover = () => {
             padding-right: 24px;
             padding-left: 8px;
             position: relative;
+            transition: background .2s;
             .am-dropdown__trigger-icon {
                 position: absolute;
                 right: 0;
@@ -132,6 +156,9 @@ const clickPopover = () => {
                 border-radius: 2px;
                 opacity: .2;
             }
+            &:hover {
+                background: rgba(0,0,0,.04);
+            }
         }
     }
     &.is-focus {
@@ -154,6 +181,9 @@ const clickPopover = () => {
                 box-shadow: 0 0px 0 0 var(--cd-border);
                 background: var(--cd-bg);
                 color: var(--cd-main);
+                &:hover {
+                    background: rgba(255,255,255,.04);
+                }
             }
         }
         &.is-focus {

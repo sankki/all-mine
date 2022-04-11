@@ -35,6 +35,71 @@ const value = ref(1);
 ```
 :::
 
+## 多选
+
+:::demo
+```vue
+<template>
+    <AmSelect
+        class="dark-select"
+        v-model:value="value"
+        multiple
+    >
+        <AmOption
+            v-for="item in options"
+            :item="item"
+            :key="item.value"
+            >{{ item.label }}</AmOption
+        >
+    </AmSelect>
+</template>
+
+
+<script setup>
+import { ref } from 'vue';
+const options = ref([{
+    label: '产品策划选项1',
+    value: 1,
+},{
+    label: '产品策划选项2',
+    value: 2,
+}, {
+    label: '选项3',
+    value: 3,
+},{
+    label: '产品策划选项4',
+    value: 4,
+},{
+    label: '产品策划选项5',
+    value: 5,
+},{
+    label: '产品策划选项6',
+    value: 6,
+},{
+    label: '产品策划选项7',
+    value: 7,
+},{
+    label: '产品策划选项8',
+    value: 8,
+}, {
+    label: '选项9',
+    value: 9,
+},{
+    label: '选项10',
+    value: 10,
+},{
+    label: '产品策划选项11',
+    value: 11,
+},{
+    label: '选项12',
+    value: 12,
+}]);
+const value = ref([]);
+</script>
+```
+:::
+
+
 ## 暗色模式
 
 :::demo

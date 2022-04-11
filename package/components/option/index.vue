@@ -2,7 +2,7 @@
     <div 
         class="am-option" 
         :class="aoClass" 
-        @click.stop="clickOption"
+        @click="clickOption"
     >
         <!-- 内容 -->
         <slot />
@@ -27,11 +27,12 @@ const props = defineProps({
     },
 })
 
-const options = inject('options')
+const options = inject('options');
+const selectedItemValue = inject('selectedItemValue');
 watch(
     () => props.item,
     () => {
-        const findedIndex = options.findIndex((i) => i === props.item)
+        const findedIndex = options.findIndex((i) => i.value === props.item.value)
         if (findedIndex >= 0) {
             options.splice(findedIndex, 1, props.item)
         } else {
@@ -43,9 +44,10 @@ watch(
         immediate: true,
     }
 )
-
-const selectedItemValue = inject('selectedItemValue')
 const isSelected = computed(() => {
+    if(Array.isArray(selectedItemValue.value)) {
+        return selectedItemValue.value.includes(props.item.value);
+    };
     return selectedItemValue.value === props.item.value
 })
 const aoClass = computed(() => {
@@ -54,11 +56,8 @@ const aoClass = computed(() => {
     }
 })
 
-const setValue = inject('setValue')
+const setValue = inject('setValue');
 const clickOption = () => {
-    setValue(props.item)
-    setTimeout(() => {
-        console.log(selectedItemValue.value)
-    }, 1000)
+    setValue(props.item);
 }
 </script>

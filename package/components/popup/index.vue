@@ -17,7 +17,7 @@
         <!-- 主体 -->
         <transition name="popup-anime" v-on:after-leave="afterLeave">
             <div class="am-popup__popup" :style="popupStyle" v-show="show">
-                <div class="am-popup__inner" v-clickoutside="clickMask">
+                <div class="am-popup__inner">
                     <div class="am-popup__hd" v-if="$slots.hd || title">
                         <div class="am-popup__title" v-if="title">{{ title }}</div>
                         <slot name="hd" />
@@ -39,6 +39,7 @@
                         <slot name="ft" />
                     </div>
                 </div>
+                <div class="am-popup__cancel-part" @click="clickMask"></div>
             </div>
         </transition>
     </div>
@@ -46,7 +47,7 @@
 
 <script setup>
 import {
-    defineProps, ref, computed, watch, onMounted, defineEmits,
+    defineProps, ref, computed, watch, onMounted, defineEmits, onUnmounted
 } from 'vue';
 import AmButton from '../button/index.vue';
 import popupManager from '../../common/popup-manager';
@@ -109,9 +110,15 @@ watch(
     },
 );
 const pop = ref(null);
+let popEl = null;
 onMounted(() => {
+    popEl = pop.value;
     document.body.appendChild(pop.value);
 });
+onUnmounted(() => {
+    popEl && popEl.remove();
+})
+
 
 const close = () => {
     emit('update:show', false);
@@ -174,6 +181,8 @@ const clickMask = () => {
         transform: translateY(calc(0.3 * (100% - 90vh)));
         background: #fff;
         border-radius: 2px;
+        position: relative;
+        z-index: 3;
     }
     &__hd {
         position: relative;
@@ -211,6 +220,14 @@ const clickMask = () => {
         > .am-button {
             margin-left: 8px;
         }
+    }
+    &__cancel-part {
+        width: 200vw;
+        height: 200vh;
+        position: absolute;
+        top: -100vh;
+        left: -100vw;
+        z-index: 2;
     }
 
     &.is-dark {

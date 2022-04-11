@@ -1,13 +1,16 @@
 <template>
     <div class="am-list-status" ref="observerEl">
         <div class="am-list-status__loading" v-if="isLoading">
-            {{ loadingText }}
+            <AmIcon name="loading1" size="18px" color="#aaa"/>
+            <span>{{ loadingText }}</span>
         </div>
         <div class="am-list-status__end" v-if="isEnd">
-            {{ endText }}
+            <AmIcon name="product1" size="18px" color="#aaa"/>
+            <span>{{ endText }}</span>
         </div>
         <div class="am-list-status__empty" v-if="isEmpty">
-            {{ emptyText }}
+            <AmIcon name="product1" size="18px" color="#aaa"/>
+            <span>{{ emptyText }}</span>
         </div>
     </div>
 </template>
@@ -49,7 +52,7 @@ const props = defineProps({
     },
     emptyText: {
         type: String,
-        default: '没有数据了',
+        default: '暂无数据',
     },
 });
 const observer = ref(null);
@@ -74,13 +77,36 @@ onUnmounted(() => {
 .am-list-status {
     width: 100%;
     display: flex;
-    &__loading, &__end {
+    &__loading, &__end, &__empty {
         width: 100%;
         display: flex;
         justify-content: center;
         font-size: 14px;
         height: 32px;
         align-items: center;
+        .am-icon {
+            margin-right: 2px;
+        }
+        >span {
+            color: var(--c-sub);
+        }
     }
+    &__loading {
+        .am-icon {
+            animation: amListStatusLoading 1s linear infinite;
+        }
+    }
+}
+@keyframes amListStatusLoading {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    
 }
 </style>

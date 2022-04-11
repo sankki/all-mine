@@ -3,6 +3,15 @@
         <div class="am-popover__trigger" ref="linkEl">
             <slot name="trigger"></slot>
         </div>
+        <!-- 遮掩层 -->
+        <!-- <transition name="mask-anime">
+            <div
+                ref="maskEl"
+                class="am-popover__mask"
+                v-show="show"
+                :style="'z-index:' + zIndex"
+            ></div>
+        </transition> -->
         <div 
             ref="ap" 
             class="am-popover__box" 
@@ -37,6 +46,7 @@ import {
     onMounted,
     ref,
     nextTick,
+    onUnmounted
 } from 'vue';
 import {
     getScrollBoxOfEl,
@@ -81,10 +91,21 @@ const emit = defineEmits(['update:show', 'after-hide', 'after-enter']);
 
 // 关联元素
 const linkEl = ref(null);
+// const maskEl = ref(null);
 const ap = ref(null);
+let apEl = null;
+// let mkEl = null;
 onMounted(() => {
+    apEl = ap.value;
+    // mkEl = maskEl.value;
     document.body.appendChild(ap.value);
+    // document.body.appendChild(maskEl.value);
 });
+onUnmounted(() => {
+    apEl && apEl.remove();
+    // mkEl && mkEl.remove();
+})
+
 
 // 下拉框显示隐藏
 const apShow = ref(false); // 一级隐藏
@@ -177,7 +198,7 @@ const endObserve = () => {
 const apStyle = computed(() => {
     const obj = {};
     obj.transform = `translate(${x.value}px, ${y.value}px)`;
-    obj.zIndex = zIndex.value;
+    obj.zIndex = zIndex.value + 1;
     return obj;
 });
 const popStyle = computed(() => {

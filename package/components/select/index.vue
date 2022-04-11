@@ -3,10 +3,13 @@
         <AmDropdown
             :scene="scene"
             popover-box-class="am-select__popover"
+            ref="dropdownCm"
         >
             <template v-slot:trigger>
                 <!-- 默认文本 -->
-                <p class="am-select__placeholder" v-if="!selectedItem">
+                <p class="am-select__placeholder" 
+                    v-if="!selectedItem || (multiple && !selectedItem.length)"
+                >
                     {{ placeholder }}
                 </p>
                 <slot
@@ -16,11 +19,24 @@
                 />
                 <!-- 单选 -->
                 <div
-                    v-else
+                    v-else-if="!multiple"
                     class="am-select__content am-select__content-alone"
                 >
                     {{ selectedItem ? selectedItem.label : '' }}
                 </div>
+                <!-- 多选 -->
+                <div
+                    v-else
+                    class="am-select__content am-select__content-multiple"
+                >
+                    <AmTag
+                        v-for="item in selectedItem"
+                        :key="item.value"
+                        size="small"
+                    >
+                        {{ item.label }}
+                    </AmTag>
+            </div>
             </template>
             <template v-slot>
                 <slot />
@@ -31,10 +47,16 @@
 
 <script setup>
 import {
-    defineProps, ref, reactive, computed, defineEmits, provide,
+    defineProps, ref, reactive, computed, defineEmits, provide, inject
 } from 'vue';
+import AmDropdown from '../dropdown/index.vue';
 
 const props = defineProps({
+    // 多选
+    multiple: {
+        type: Boolean,
+        default: false,
+    },
     // 默认文字
     placeholder: {
         type: String,
@@ -48,28 +70,61 @@ const props = defineProps({
     },
 });
 const emit = defineEmits(['update:value', 'change']);
-
+const dropdownCm = ref(null);
+/**
+ * options 
+ * {
+ *     value: 1,
+ *     label: '选项名'  
+ * }
+ */
 const options = reactive([]);
 provide('options', options);
+const dropdownShow = inject('dropdownShow');
 
 const asClass = computed(() => ({
     [`is-${props.scene}`]: props.scene,
 }));
-const selectedItem = computed(() => options.find((item) => {
-    if (item.value === props.value) {
-        return true;
+const selectedItem = computed(() => {
+    if (props.multiple) {
+        // 多选
+        const arr = options.filter(i => {
+            return props.value.includes(i.value);
+        })
+        console.log('# arr', arr);
+        return arr;
     }
-}));
+    return options.find(i => i.value === props.value);
+});
 provide(
     'selectedItemValue',
     computed(() => props.value),
 );
 
+provide(
+    'selectedItem',
+    selectedItem
+);
+
 // 数据相关
 provide('setValue', (option) => {
-    emit('update:value', option.value);
-    emit('change', option.value);
-    dropDownShow.value = false;
+    if (props.multiple) {
+        // 多选
+        const newValue = props.value ? props.value : [];
+        const index = newValue.findIndex((i) => i === option.value);
+        if (index > -1) {
+            newValue.splice(index, 1);
+        } else {
+            newValue.push(option.value);
+        }
+        emit('update:value',newValue);
+        emit('change', newValue);
+    } else {
+        // 单选
+        emit('update:value', option.value);
+        emit('change', option.value);
+        dropdownCm.value.hideDropdown();
+    }
 });
 </script>
 
@@ -79,7 +134,7 @@ provide('setValue', (option) => {
     // 默认文本
     &__placeholder {
         width: calc(100% - 30px);
-        color: var(--placeholder);
+        color: var(--c-placeholder);
         margin: 0;
         width: 100%;
     }
@@ -95,10 +150,11 @@ provide('setValue', (option) => {
         &-multiple {
             display: flex;
             flex-wrap: wrap;
-            padding: 3px 0 3px 8px;
             flex: 1;
+            padding-top: 2px;
             .am-tag {
-                margin: 2px 4px 2px 0;
+                margin-bottom: 2px;
+                margin-right: 2px;
             }
         }
     }
@@ -115,6 +171,10 @@ provide('setValue', (option) => {
 }
 
 .am-select__popover {
+    .am-dropdown__popover-inner {
+        max-height: 240px;
+        overflow: auto;
+    }
     .am-option {
         user-select: none;
         padding: 5px 8px;

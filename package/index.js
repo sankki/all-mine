@@ -21,6 +21,7 @@ import AmFormItem from './components/form-item/index.vue';
 import AmAvatar from './components/avatar/index.vue';
 import AmList from './components/list/index.vue';
 import AmListItem from './components/list-item/index.vue';
+import AmListStatus from './components/list-status/index.vue';
 import AmWaterfall from './components/waterfall/index.vue';
 import AmDropdown from './components/dropdown/index.vue';
 import AmSwitch from './components/switch/index.vue';
@@ -62,6 +63,7 @@ export default {
         app.component('AmAvatar', AmAvatar);
         app.component('AmList', AmList);
         app.component('AmListItem', AmListItem);
+        app.component('AmListStatus', AmListStatus);
         app.component('AmWaterfall', AmWaterfall);
         app.component('AmDropdown', AmDropdown);
         app.component('AmSwitch', AmSwitch);
@@ -108,4 +110,5 @@ export default {
     AmSwitch,
     AmRadio,
     AmTag,
+    AmListStatus,
 };
