@@ -8,12 +8,10 @@ export default ({ command, mode }) => {
             vue()
         ],
         resolve: {
-            dedupe: ['vue'],
             extensions:['.js','.json', '.vue']  
         },
         build: {
             resolve: {
-                dedupe: ['vue'],
                 extensions:['.js','.json', '.vue']  
             },
             lib: {
@@ -23,29 +21,20 @@ export default ({ command, mode }) => {
             outDir: path.resolve(__dirname, './lib'),
             rollupOptions: {
                 external: ['vue'],
-                resolve: {
-                    dedupe: ['vue']
-                },
                 output: {
                     globals: {
                         vue: 'Vue'
-                    }
+                    },
                 },
             },
         },
         rollupOptions: {
             external: ['vue'],
-            resolve: {
-                dedupe: ['vue']
-            },
             output: {
                 globals: {
                     vue: 'Vue'
                 }
-            },
-            input: {
-                test: path.resolve(__dirname, 'test/index.html'),
-            },
+            }
         },
     })
 }

@@ -1,17 +1,27 @@
 {
   "name": "all-mine",
-  "version": "1.0.0",
+  "version": "2.0.5",
   "description": "",
-  "main": "index.js",
   "directories": {
     "doc": "doc"
+  },
+  "files": ["lib"],
+  "main": "./lib/mall-mine.es.js",
+	"module": "./lib/all-mine.umd.js",
+  "exports": {
+    ".": {
+      "import": "./lib/all-mine.es.js",
+      "require": "./lib/all-mine.umd.js"
+    },
+    "./lib/style.css": "./lib/style.css"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "ci-publish": "node cicd/ci-publish.js"
   },
   "dependencies": {
     "autosize": "^5.0.1",
@@ -22,7 +32,6 @@
     "macy": "^2.5.1",
     "nanoid": "^3.1.30",
     "normalize.css": "^8.0.1",
-    "vue": "3.2.25",
     "vue-draggable-resizable": "^2.3.0",
     "vue-resizable": "^2.0.5",
     "vue-router": "^4.0.12"
@@ -41,7 +50,8 @@
     "sass-loader": "^12.2.0",
     "unplugin-auto-import": "^0.5.3",
     "vitepress": "^0.21.6",
-    "vitepress-theme-demoblock": "^1.4.2"
+    "vitepress-theme-demoblock": "^1.4.2",
+    "vue": "3.2.25"
   },
   "repository": {
     "type": "git",

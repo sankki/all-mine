@@ -1,0 +1,48 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      # 克隆仓库
+      - name: 克隆 master 分支
+        uses: actions/checkout@v2
+        with:
+          repository: renjianganguan/user-center
+          ref: master
+          path: ./user-center
+
+      - name: 安装 node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+
+      # 安装和构建
+      - name: npm分支自动构建
+        env:
+          # 仓库用户名
+          REPO_USERNAME: "uoau"
+          # GitHub Pages仓库名
+          DIST_REPO: "utilhub"
+          # GitHub Token
+          GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
+        run: |
+          ls
+          cd utilhub && ls && npm i && npm run build
+          git config --global user.email "Action@GitHub.com"
+          git config --global user.name "GitHub Action"
+          cd ../utilhub-npm
+          git init && git add .
+          git commit -m "npm branch updated $(date +'%Y-%m-%d %H:%M:%S')"
+          git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" npm:npm
+      - name: 发布npm包
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          package: ./utilhub-npm/package.json
+          token: ${{ secrets.NPM_TOKEN }}
