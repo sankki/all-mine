@@ -17,7 +17,7 @@
                     >
                         <circle
                             class="path2"
-                            fill="none"
+                            fill="red"
                             stroke-width="4"
                             cx="18"
                             cy="18"
@@ -26,7 +26,7 @@
                         </circle>
                         <circle
                             class="path"
-                            fill="none"
+                            fill="blue"
                             stroke-width="4"
                             cx="18"
                             cy="18"

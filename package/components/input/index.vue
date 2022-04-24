@@ -9,6 +9,7 @@
         <!-- 主体 -->
         <div class="am-input__inner">
             <textarea
+                :readOnly="readOnly"
                 ref="textareaEl"
                 v-if="type === 'textarea'"
                 spellcheck="false"
@@ -22,6 +23,7 @@
                 @keyup.enter="onEnter"
             ></textarea>
             <input
+                :readOnly="readOnly"
                 v-else
                 spellcheck="false"
                 :type="type"
@@ -58,6 +60,10 @@ const props = defineProps({
     scene: {
         type: String,
         default: 'light', // light dark
+    },
+    readOnly: {
+        type: Boolean,
+        default: false,
     }
 });
 const emit = defineEmits([
@@ -71,7 +77,6 @@ const emit = defineEmits([
 
 // 事件
 const onInput = (e) => {
-    console.log(e.target.value, 'e.target.value');
     emit('update:value', e.target.value);
     emit('input', e);
 };
@@ -81,7 +86,6 @@ const onChange = (e) => {
 const isFocus = ref(false);
 const onFocus = (e) => {
     isFocus.value = true;
-    emit('change', e);
 };
 const onBlur = (e) => {
     isFocus.value = false;

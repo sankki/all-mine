@@ -64,6 +64,7 @@ const props = defineProps({
 });
 
 const dropdownShow = ref(false);
+const dropdownLock = ref(false);
 
 const isFocus = computed(() => dropdownShow.value);
 const asClass = computed(() => ({
@@ -81,6 +82,7 @@ const clickTrigger = () => {
 };
 let timer;
 const clickOutside = () => {
+    if(dropdownLock.value) return;
     timer = setTimeout(() => {
         dropdownShow.value = false;
     },16);
@@ -98,9 +100,17 @@ const hideDropdown = () => {
         dropdownShow.value = false;
     },16);
 }
+const lock = () => {
+    dropdownLock.value = true;
+}
+const unlock = () => {
+    dropdownLock.value = false;
+}
 
 defineExpose({
     hideDropdown,
+    lock,
+    unlock,
 });
 </script>
 

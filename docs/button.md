@@ -17,6 +17,8 @@
     <AmButton mode="plain">描边按钮</AmButton>
     <AmDivider margin="8px"/>
     <AmButton mode="text">文本按钮</AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton mode="primary-text">主题色文本按钮</AmButton>
   </div>
   <div>
     <AmButton icon="close" sharp="square"></AmButton>
@@ -114,6 +116,8 @@
       <AmButton mode="plain" scene="dark">描边按钮</AmButton>
       <AmDivider margin="8px"/>
       <AmButton mode="text" scene="dark">文本按钮</AmButton>
+      <AmDivider margin="8px"/>
+      <AmButton mode="primary-text" scene="dark">文本按钮</AmButton>
     </div>
     <div style="margin-bottom:16px;">
       <AmButton icon="close" sharp="square" scene="dark"></AmButton>

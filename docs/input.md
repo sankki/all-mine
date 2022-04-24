@@ -7,13 +7,19 @@
 :::demo
 ```vue
 <template>
-    <AmInput v-model:value="value" />
+    <AmInput 
+        v-model:value="value" 
+        @change="changeInput"    
+    />
 </template>
 
 
 <script setup>
 import { ref } from 'vue';
 const value = ref('');
+const changeInput = () => {
+    console.log('change');
+}
 </script>
 ```
 :::
@@ -57,6 +63,29 @@ xux!`);
 <script setup>
 import { ref } from 'vue';
 const value = ref('');
+</script>
+```
+:::
+
+## 只读
+
+:::demo
+```vue
+<template>
+    <AmInput 
+        v-model:value="value" 
+        @change="changeInput"
+        readOnly
+    />
+</template>
+
+
+<script setup>
+import { ref } from 'vue';
+const value = ref('只读文本只读文本只读文本只读文本只读文本只读文本只读文本只读文本');
+const changeInput = () => {
+    console.log('change');
+}
 </script>
 ```
 :::

@@ -30,7 +30,7 @@ const props = defineProps({
     // 模式
     mode: {
         type: String,
-        default: 'default',
+        default: 'default', // default primary plain text primary-text
     },
     // 尺寸
     size: {
@@ -218,6 +218,22 @@ const handleClick = (e) => {
                 // 暂缺
             }
         }
+        &.is-primary-text {
+            color: var(--c-primary);
+            &:hover {
+                &:after {
+                    background: rgba(0,0,0,.06);
+                }
+            }
+            &.is-down {
+                &:after {
+                    background: rgba(0,0,0,.12);
+                }
+            }
+            &.is-selected {
+                // 暂缺
+            }
+        }
 
         // 功能性
         &.is-confirm {
@@ -310,6 +326,22 @@ const handleClick = (e) => {
                 // 暂缺
             }
         }
+        &.is-primary-text {
+            color: var(--cd-primary);
+             &:hover {
+                &:after {
+                    background: rgba(255,255,255,.16);
+                }
+            }
+            &.is-down {
+                &:after {
+                    background: rgba(255,255,255,.24);
+                }
+            }
+            &.is-selected {
+                // 暂缺
+            }
+        }
 
         // 功能性
         &.is-confirm {
@@ -336,14 +368,14 @@ const handleClick = (e) => {
     &.is-large {
         height: 40px;
         line-height: 40px;
-        padding: 0 12px;
+        padding: 0 10px;
         font-size: 16px;
         min-width: 40px;
     }
     &.is-medium {
         height: 30px;
         line-height: 30px;
-        padding: 0 10px;
+        padding: 0 8px;
         min-width: 30px;
         font-size: 14px;
     }
@@ -351,15 +383,15 @@ const handleClick = (e) => {
         font-size: 13px;
         height: 24px;
         line-height: 24px;
-        padding: 0 6px;
+        padding: 0 4px;
         min-width: 24px;
     }
     &.is-mini {
         font-size: 12px;
-        height: 16px;
-        line-height: 16px;
-        padding: 0 4px;
-        min-width: 16px;
+        height: 18px;
+        line-height: 18px;
+        padding: 0 2px;
+        min-width: 18px;
     }
 
     // 形状
