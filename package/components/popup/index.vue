@@ -106,7 +106,7 @@ const popupStyle = computed(() => ({
 watch(
     () => props.show,
     () => {
-        zIndex.value = popupManager.getZIndex();
+        props.show && (zIndex.value = popupManager.getZIndex());
     },
 );
 const pop = ref(null);

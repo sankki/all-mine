@@ -116,7 +116,6 @@ defineExpose({
 
 <style lang="scss">
 .am-dropdown {
-    width: 100%;
     &__trigger {
         display: flex;
         &-icon {

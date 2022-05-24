@@ -70,19 +70,19 @@ const clickTab = (item) => {
             position: absolute;
             left: 0;
             top: 0;
-            background: var(--c-primary);
+            background: var(--c-bglight);
             opacity: 0;
             transition: opacity .1s;
         }
         &.is-active {
             // background: var(--c-primary);
-            color: var(--c-primary);
+            color: var(--c-main);
             font-weight: bold;
             // background: var(--primary);
             // color: #fff;
             // border-color: #ddd;
             &::before {
-                opacity: .1;
+                opacity: 1;
             }
         }
         &:hover:not(.is-active) {

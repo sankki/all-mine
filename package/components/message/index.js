@@ -74,5 +74,6 @@ export default {
             }
         };
         app.provide('$message', $message);
+        window.$message = $message;
     },
 };

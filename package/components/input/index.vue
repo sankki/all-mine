@@ -15,6 +15,7 @@
                 spellcheck="false"
                 :placeholder="placeholder"
                 :value="value"
+                :autocomplete="autocomplete"
                 @input="onInput"
                 @focus="onFocus"
                 @blur="onBlur"
@@ -29,6 +30,7 @@
                 :type="type"
                 :value="value"
                 :placeholder="placeholder"
+                :autocomplete="autocomplete"
                 @input="onInput"
                 @focus="onFocus"
                 @blur="onBlur"
@@ -62,6 +64,10 @@ const props = defineProps({
         default: 'light', // light dark
     },
     readOnly: {
+        type: Boolean,
+        default: false,
+    },
+    autocomplete: {
         type: Boolean,
         default: false,
     }
@@ -190,7 +196,7 @@ watch(
                 border: 1px solid var(--cd-primary);
                 &:after {
                     outline-color: var(--cd-primary);
-                    opacity: .4;
+                    opacity: .2;
                 }
             }
         }
