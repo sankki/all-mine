@@ -7,8 +7,9 @@
 
 <script setup>
 import {
-    defineProps, inject, getCurrentInstance,
+    defineProps, inject, getCurrentInstance, onUnmounted,
 } from 'vue';
+import { nanoid } from 'nanoid'
 
 defineProps({
     // 表头名称
@@ -40,7 +41,21 @@ console.log('ins', ins)
 // const { label } = toRefs(props);
 // const label = props.label;
 const tableColumnData = inject('tableColumnData');
-tableColumnData.value.push(ins);
+const columnId = nanoid();
+tableColumnData.value.push({
+    props: ins.props,
+    slots: ins.slots,
+    id: columnId,
+});
+
+onUnmounted(() => {
+    const findIndex = tableColumnData.value.findIndex(i => {
+        return i.id === columnId;
+    });
+    if(findIndex >= 0) {
+        tableColumnData.value.splice(findIndex, 1);
+    }
+})
 </script>
 
 <style lang="scss">

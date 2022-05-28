@@ -1,7 +1,10 @@
 <template>
     <div class="am-table">
         <div style="display: none"><slot /></div>
-        <div class="am-table__hd">
+        <div 
+            class="am-table__hd"
+            :style="hdStyle"
+        >
             <table>
                 <thead>
                     <tr>
@@ -30,7 +33,7 @@
                 </thead>
             </table>
         </div>
-        <div class="am-table__bd" :style="bdStyle" ref="bd">
+        <div class="am-table__bd" :style="tableBdStyle" ref="bd">
             <table>
                 <colgroup>
                     <col
@@ -45,7 +48,7 @@
                     <tr
                         v-for="(item1, index1) in data"
                         :key="index1"
-                        :class="rowClass(item1)"
+                        :class="rowClass(item1, index1)"
                         @click="clickRow(item1)"
                     >
                         <td
@@ -103,22 +106,35 @@ const props = defineProps({
         type: Function,
         default: () => {},
     },
+    // 表头样式
+    hdStyle: {
+        type: Object,
+        default: () => {},
+    },
+    // 表体样式
+    bdStyle: {
+        type: Object,
+        default: () => {},
+    }
 });
 const columnData = ref([]);
 provide('tableColumnData', columnData);
 // 滚动
-const bdStyle = computed(() => ({
-    height: props.height ? `${props.height}` : '',
-    overflow: props.height ? 'auto' : '',
+const tableBdStyle = computed(() => ({
+    'max-height': props.height ? `${props.height}` : '',
+    'overflow-y': props.height ? 'auto' : '',
+    'overflow-x': 'hidden',
+    ...props.bdStyle,
 }));
 const scrollBarWidth = ref(0);
 const bd = ref(null);
 onMounted(() => {
     observeElResize(bd.value.firstChild, () => {
-        const beRect = bd.value.getBoundingClientRect();
+        const beRect = bd.value.offsetWidth;
         const tableRect = bd.value.firstChild.getBoundingClientRect();
-        scrollBarWidth.value = beRect.width - tableRect.width - 2;
-        console.log(scrollBarWidth.value);
+        scrollBarWidth.value = bd.value.offsetWidth - bd.value.firstChild.offsetWidth - 2;
+        console.log('# scrollBarWidth',scrollBarWidth.value);
+        // console.log('#beRect', beRect, tableRect);
     });
 });
 
@@ -225,6 +241,10 @@ const Cell = defineComponent({
     &__th-cell {
         display: flex;
         align-items: center;
+        word-break: break-word;
+    }
+    &__td-cell {
+        word-break: break-word;
     }
     &__th-scroll-bar {
         padding: 0!important;
