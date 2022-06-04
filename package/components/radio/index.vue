@@ -9,7 +9,12 @@
     >
         <div class="am-radio__box">
             <transition name="am-radio-anime">
-                <AmIcon name="check2" v-show="selected" size="12px" />
+                <AmIcon 
+                    name="check-2" 
+                    v-show="selected" 
+                    size="18px" 
+                    color="#fff"
+                />
             </transition>
         </div>
         <div class="am-radio__text" v-if="$slots.default">
@@ -84,7 +89,7 @@ const handleClick = () => {
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        border: 1px solid var(--border);
+        border: 1px solid var(--c-border);
         transition: border .2s, background .2s;
         background: #fff;
         .am-icon {
@@ -99,14 +104,14 @@ const handleClick = () => {
         color: var(--c-main);
     }
 
-    .am-checkbox-anime-enter-active {
+    .am-radio-anime-enter-active {
         animation: am-checkbox-in .2s;
     }
-    .am-checkbox-anime-leave-active {
+    .am-radio-anime-leave-active {
         animation: am-checkbox-in .2s reverse;
         animation-fill-mode: forwards;
     }
-    @keyframes am-checkbox-in {
+    @keyframes am-radio-in {
         from {
             opacity: 0;
             transform: scale(0);
@@ -119,14 +124,14 @@ const handleClick = () => {
 
     // 状态
     &:hover {
-        .am-checkbox__box {
-            border-color: var(--primary);
+        .am-radio__box {
+            border-color: var(--c-primary);
         }
     }
     &.is-active {
-        .am-checkbox__box {
-            background: var(--primary);
-            border-color: var(--primary);
+        .am-radio__box {
+            background: var(--c-primary);
+            border-color: var(--c-primary);
         }
     }
 
