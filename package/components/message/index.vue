@@ -11,6 +11,8 @@
                     'z-index': zIndex,
                 }"
                 v-show="show"
+                @mouseenter="mouseEnter"
+                @mouseleave="mouseLeave"
             >
                 <AmIcon v-if="type" :name="iconName" size="20px"/>
                 <span>{{ content }}</span>
@@ -70,6 +72,14 @@ onMounted(() => {
         show.value = false;
     }, props.duration);
 });
+
+// 进入与离开
+const mouseEnter = () => {
+    
+}
+const mouseLeave = () => {
+
+}
 
 // 关闭与摧毁
 const remove = () => {

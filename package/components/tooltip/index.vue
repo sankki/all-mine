@@ -133,10 +133,12 @@ onUnmounted(() => {
 })
 
 const onMouseEnter = () => {
+    if(props.disabled) return;
     if (props.trigger !== 'hover') return
     popShow.value = true
 }
 const onMouseLeave = () => {
+    if(props.disabled) return;
     if (props.trigger !== 'hover') return
     popShow.value = false
 }
