@@ -11,25 +11,25 @@
                 <div class="am-loading__card">
                     <svg
                         class="spinner"
-                        width="36px"
-                        height="36px"
+                        width="40px"
+                        height="40px"
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <circle
                             class="path2"
-                            fill="red"
-                            stroke-width="4"
-                            cx="18"
-                            cy="18"
+                            fill="none"
+                            stroke-width="3"
+                            cx="20"
+                            cy="20"
                             r="13"
                         >
                         </circle>
                         <circle
                             class="path"
-                            fill="blue"
-                            stroke-width="4"
-                            cx="18"
-                            cy="18"
+                            fill="none"
+                            stroke-width="3"
+                            cx="20"
+                            cy="20"
                             r="13"
                         >
                         </circle>
@@ -127,26 +127,27 @@ defineExpose({
         align-items: center;
         justify-content: center;
         padding:  24px 48px;
-        max-width: 240px;
-        min-width: 160px;
+        max-width: 320px;
+        min-width: 200px;
+        min-height: 120px;
         .spinner {
             margin-bottom: 8px;
             .path {
-                stroke: var(--primary);
+                stroke: var(--c-primary);
                 transform-origin: center;
                 position: relative;
                 animation: dash 1s linear infinite;
-                stroke-dasharray: 20, 80;
+                stroke-dasharray: 30, 80;
                 stroke-dashoffset: 0;
             }
             .path2 {
-                stroke: var(--light-bg);
+                stroke: var(--c-bglight);
                 transform-origin: center;
                 position: relative;
             }
         }
         > span {
-            font-size: 16px;
+            font-size: 14px;
             // color: #fff;
             // background: var(--primary);
             padding: 0 8px;
