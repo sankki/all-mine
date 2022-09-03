@@ -26,7 +26,7 @@
 import {
     defineProps, defineEmits, computed,
 } from 'vue';
-import { cloneDeep } from 'lodash';
+// import cloneDeep from 'lodash/cloneDeep';
 import AmIcon from '../icon/index.vue';
 
 const emit = defineEmits([
@@ -70,7 +70,7 @@ const selected = computed(() => {
 const handleClick = () => {
     if (Array.isArray(props.value)) {
         let inIndex = -1;
-        const newValue = cloneDeep(props.value);
+        const newValue = JSON.parse(JSON.stringify(props.value));
         newValue.forEach((item, index) => {
             if (item === props.label) {
                 inIndex = index;

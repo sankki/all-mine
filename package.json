@@ -1,11 +1,11 @@
 {
   "name": "all-mine",
-  "version": "2.0.17",
+  "version": "2.0.27",
   "description": "",
   "directories": {
     "doc": "doc"
   },
-  "files": ["lib"],
+  "files": ["lib", "mini-lib"],
   "main": "./lib/mall-mine.es.js",
 	"module": "./lib/all-mine.umd.js",
   "exports": {

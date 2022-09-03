@@ -23,6 +23,8 @@ class CosUploader {
         this.adminCommandUrl = adminCommandUrl;
         this.adminCommandKey = adminCommandKey;
         const cos = new COS({
+            Domain: 'cos.sankki.com',
+            Protocol: 'https:',
             async getAuthorization(options, callback) {
                 const { data } = await axios.post(`${adminCommandUrl}`, {
                     secret: adminCommandKey,

@@ -4,6 +4,7 @@
         :class="{
             ['is-active']: value,
             [`is-${scene}`]: scene,
+            [`is-${size}`]: size,
         }"
         @click="handleClick"
     >
@@ -28,7 +29,11 @@ const props = defineProps({
     scene: {
         type: String,
         default: 'light', // light dark
-    }
+    },
+    size: {
+        type: String,
+        default: 'medium', // medium 20px small 14px
+    },
 })
 
 const handleClick = () => {
@@ -97,6 +102,17 @@ const handleClick = () => {
                     border-color: var(--cd-success);
                 }
             }
+        }
+    }
+
+    // 尺寸
+    &.is-small {
+        .am-switch__switch {
+            width: 32px;
+            height: 16px;
+        }
+        .am-switch__text {
+            font-size: 13px;
         }
     }
 }

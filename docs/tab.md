@@ -10,6 +10,9 @@
 ```vue
 <template>
     <AmTab :tabs="tabs" v-model:value="nowTab"></AmTab>
+    <br />
+
+    <AmTab :tabs="tabs" v-model:value="nowTab" mode="line"></AmTab>
 </template>
 
 

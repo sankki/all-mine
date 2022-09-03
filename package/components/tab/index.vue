@@ -1,6 +1,11 @@
 <template>
     <!-- TAB -->
-    <div class="am-tab">
+    <div 
+        class="am-tab"
+        :class="{
+            [`is-${mode}`]: mode,
+        }"    
+    >
         <div
             :class="{
                 'is-active': item.value === value,
@@ -29,6 +34,10 @@ defineProps({
         ],
     },
     value: null,
+    mode: {
+        type: String,
+        default: 'default', // default 默认 line 线型  
+    }
 });
 
 const emit = defineEmits(['update:value']);
@@ -44,49 +53,105 @@ const clickTab = (item) => {
     border-radius: 3px;
     // border: 1px solid #ddd;
     // padding: 4px;
-    &__item {
-        height: 28px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 2px;
-        cursor: pointer;
-        font-size: 13px;
-        padding: 0 8px;
-        // border: 1px solid rgba(0,0,0,0);
-        color: var(--c-sub);
-        position: relative;
-        overflow: hidden;
-        transition: background .1s;
-        span {
-            position: relative;
-            z-index: 2;
-        }
-        &::before {
-            content: '';
+    // 默认风格
+    &.is-default {
+        .am-tab__item {
+            height: 30px;
             display: inline-flex;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            background: var(--c-bglight);
-            opacity: 0;
-            transition: opacity .1s;
-        }
-        &.is-active {
-            // background: var(--c-primary);
-            color: var(--c-main);
-            font-weight: bold;
-            // background: var(--primary);
-            // color: #fff;
-            // border-color: #ddd;
-            &::before {
-                opacity: 1;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 13px;
+            padding: 0 8px;
+            // border: 1px solid rgba(0,0,0,0);
+            color: var(--c-sub);
+            position: relative;
+            overflow: hidden;
+            transition: background .1s;
+            span {
+                position: relative;
+                z-index: 2;
             }
+            &::before {
+                content: '';
+                display: inline-flex;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: var(--c-bglight);
+                opacity: 0;
+                transition: opacity .1s;
+            }
+            &.is-active {
+                // background: var(--c-primary);
+                color: var(--c-main);
+                font-weight: bold;
+                // background: var(--primary);
+                // color: #fff;
+                // border-color: #ddd;
+                &::before {
+                    opacity: 1;
+                }
+            }
+            &:hover:not(.is-active) {
+                background: var(--c-bglight);
+            } 
         }
-        &:hover:not(.is-active) {
-            background: var(--c-bglight);
+    }
+
+    // 线形风格
+    &.is-line {
+        .am-tab__item {
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 13px;
+            padding: 0 8px;
+            // border: 1px solid rgba(0,0,0,0);
+            color: var(--c-sub);
+            position: relative;
+            // overflow: hidden;
+            transition: background .1s, color .1s;
+            span {
+                position: relative;
+                z-index: 2;
+            }
+            &::before {
+                content: '';
+                display: inline-flex;
+                width: 20px;
+                height: 2px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto;
+                background: var(--c-primary);
+                // background: var(--c-bglight);
+                opacity: 0;
+                transition: opacity .1s;
+            }
+            &.is-active {
+                // background: var(--c-primary);
+                color: var(--c-main);
+                font-weight: bold;
+                // background: var(--primary);
+                // color: #fff;
+                // border-color: #ddd;
+                &::before {
+                    opacity: 1;
+                }
+            }
+            &:hover:not(.is-active) {
+                color: var(--c-main);
+                font-weight: bold;
+            } 
         }
     }
 }

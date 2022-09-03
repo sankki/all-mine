@@ -27,6 +27,7 @@ import AmDropdown from './components/dropdown/index.vue';
 import AmSwitch from './components/switch/index.vue';
 import AmRadio from './components/radio/index.vue';
 import AmTag from './components/tag/index.vue';
+import AmAlert from './components/alert/index.vue';
 
 import AmMessage from './components/message/index';
 import AmLoading from './components/loading/index';
@@ -69,6 +70,7 @@ export default {
         app.component('AmSwitch', AmSwitch);
         app.component('AmRadio', AmRadio);
         app.component('AmTag', AmTag);
+        app.component('AmAlert', AmAlert);
 
         app.directive('clickoutside', clickoutside);
         app.directive('clickanime', clickanime);
@@ -110,5 +112,6 @@ export default {
     AmSwitch,
     AmRadio,
     AmTag,
+    AmAlert,
     AmListStatus,
 }

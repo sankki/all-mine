@@ -185,7 +185,7 @@ const clickMask = () => {
         z-index: 3;
     }
     &__hd {
-        position: relative;
+        // position: relative;
     }
     &__title {
         margin: auto;
@@ -200,8 +200,8 @@ const clickMask = () => {
     &__close {
         position: absolute;
         right: 16px;
-        bottom: -2px;
-        margin: auto;
+        top: 12px;
+        margin: 0;
         z-index: 10;
         width: 20px;
         height: 20px;

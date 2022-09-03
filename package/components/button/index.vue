@@ -9,7 +9,8 @@
         <AmIcon :class="iconClass" v-if="icon" :name="icon" :size="iconSize" />
         <!-- 内容 -->
         <div class="am-button__content" v-if="$slots.default">
-            <slot />
+            <template v-if="loading && loadingText">{{ loadingText }}</template>
+            <slot v-else />
         </div>
     </div>
 </template>
@@ -74,11 +75,21 @@ const props = defineProps({
         type: String,
         default: 'front', // 有front和back
     },
+    // 加载中
+    loading: {
+        type:Boolean,
+        default: false,
+    },
+    loadingText: {
+        type: String,
+        default: '',
+    }
 });
 
 const className = computed(() => ({
     'is-disabled': props.disabled,
     'is-selected': props.selected,
+    'is-loading': props.loading,
     [`is-${props.mode}`]: props.mode,
     [`is-${props.size}`]: props.size,
     [`is-${props.sharp}`]: props.sharp,
@@ -91,7 +102,7 @@ const iconClass = computed(() => ({
 
 const emit = defineEmits(['click']);
 const handleClick = (e) => {
-    if (props.disabled) {
+    if (props.disabled || props.loading) {
         e.preventDefault();
         return;
     }
@@ -145,7 +156,13 @@ const handleClick = (e) => {
     &.is-disabled {
         pointer-events: none;
         cursor: not-allowed;
-        opacity: .4;
+        opacity: .5;
+    }
+    // 加载中
+    &.is-loading {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: .5; 
     }
 
     // 明朗模式
@@ -405,7 +422,7 @@ const handleClick = (e) => {
             padding: 0;
         }
         &.is-medium {
-            width: 32px;
+            width: 30px;
             border-radius: 2px;
             padding: 0;
         }
@@ -415,7 +432,7 @@ const handleClick = (e) => {
             padding: 0;
         }
         &.is-mini {
-            width: 16px;
+            width: 18px;
             border-radius: 2px;
             padding: 0;
         }

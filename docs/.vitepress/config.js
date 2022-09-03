@@ -56,6 +56,7 @@ module.exports = {
                     { text: 'Logo', link: '/logo' },
                     { text: '头像', link: '/avatar' },
                     { text: '列表', link: '/list' },
+                    { text: '警告', link: '/alert' },
                 ],
                 sidebarDepth:3
             },

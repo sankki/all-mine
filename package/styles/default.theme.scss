@@ -53,6 +53,21 @@
     --c-border:       #ddd; // 边框色
     --cd-border:      #444; // 边框色
 
+    // 常用文字字号行高比
+    --f-48: 48px/56px var(--font-family);
+    --f-40: 40px/48px var(--font-family);
+    --f-36: 36px/44px var(--font-family);
+    --f-32: 32px/40px var(--font-family);
+    --f-28: 28px/36px var(--font-family);
+    --f-24: 24px/32px var(--font-family);
+    --f-20: 20px/28px var(--font-family);
+    --f-18: 18px/26px var(--font-family);
+    --f-16: 16px/24px var(--font-family);
+    --f-15: 15px/23px var(--font-family);
+    --f-14: 14px/22px var(--font-family);
+    --f-13: 13px/21px var(--font-family);
+    --f-12: 12px/20px var(--font-family);
+
     /*
      * 阴影
      */

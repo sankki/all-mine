@@ -27,7 +27,7 @@
 import {
     defineProps, defineEmits, computed,
 } from 'vue';
-import { cloneDeep } from 'lodash';
+// import cloneDeep from 'lodash/cloneDeep';
 import AmIcon from '../icon/index.vue';
 
 const emit = defineEmits([

@@ -14,11 +14,20 @@ export default ({ command, mode }) => {
             resolve: {
                 extensions:['.js','.json', '.vue']  
             },
-            lib: {
-                entry: path.resolve(__dirname, './package/index.js'),
-                name: 'AllMine',
-            },
-            outDir: path.resolve(__dirname, './lib'),
+            lib: 
+                mode === 'mini' ? 
+                {
+                    entry: path.resolve(__dirname, './package/mini-index.js'),
+                    name: 'AllMine',
+                } : 
+                {
+                    entry: path.resolve(__dirname, './package/index.js'),
+                    name: 'AllMine',
+                },
+            outDir:  
+                mode === 'mini' ? 
+                path.resolve(__dirname, './mini-lib') : 
+                path.resolve(__dirname, './lib'),
             rollupOptions: {
                 external: ['vue'],
                 output: {

@@ -150,7 +150,24 @@
 ```
 :::
 
+## 加载状态
 
+:::demo
+
+```vue
+<template>
+    <AmButton loading loadingText="加载中...">默认按钮</AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton loading mode="primary">主题色按钮</AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton loading mode="plain">描边按钮</AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton loading mode="text">文本按钮</AmButton>
+    <AmDivider margin="8px"/>
+    <AmButton loading mode="primary-text">主题色文本按钮</AmButton>
+</template>
+```
+:::
 
 
 ## 属性
