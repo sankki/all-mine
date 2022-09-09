@@ -130,10 +130,11 @@ const scrollBarWidth = ref(0);
 const bd = ref(null);
 onMounted(() => {
     observeElResize(bd.value.firstChild, () => {
+        if(!bd.value) return;
         const beRect = bd.value.offsetWidth;
         const tableRect = bd.value.firstChild.getBoundingClientRect();
         scrollBarWidth.value = bd.value.offsetWidth - bd.value.firstChild.offsetWidth - 2;
-        console.log('# scrollBarWidth',scrollBarWidth.value);
+        // console.log('# scrollBarWidth',scrollBarWidth.value);
         // console.log('#beRect', beRect, tableRect);
     });
 });

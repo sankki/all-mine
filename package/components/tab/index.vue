@@ -131,6 +131,7 @@ const clickTab = (item) => {
                 left: 0;
                 bottom: 0;
                 right: 0;
+                top: initial;
                 margin: auto;
                 background: var(--c-primary);
                 // background: var(--c-bglight);
@@ -151,6 +152,7 @@ const clickTab = (item) => {
             &:hover:not(.is-active) {
                 color: var(--c-main);
                 font-weight: bold;
+                background: none;
             } 
         }
     }

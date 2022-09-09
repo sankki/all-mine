@@ -93,7 +93,6 @@ const clickPopover = () => {
         timer = null;
     }
     dropdownShow.value = true;
-    console.log('触发了');
 }
 const hideDropdown = () => {
     timer = setTimeout(() => {

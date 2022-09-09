@@ -117,7 +117,7 @@ const deleteAlert = () => {
         padding: 8px 16px;
     }
     &.is-mini {
-        padding: 0px 4px;
+        padding: 2px 4px;
         font-size: 12px;
     }
 }

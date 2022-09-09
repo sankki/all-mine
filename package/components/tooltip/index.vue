@@ -130,6 +130,7 @@ onMounted(() => {
 })
 onUnmounted(() => {
     tipElement && tipElement.remove();
+    endObserve();
 })
 
 const onMouseEnter = () => {
@@ -143,6 +144,7 @@ const onMouseLeave = () => {
     popShow.value = false
 }
 const check = async () => {
+    if(!triggerEl.value) return;
     const triggerRect = triggerEl.value.getBoundingClientRect()
 
     const { width, height } = triggerRect

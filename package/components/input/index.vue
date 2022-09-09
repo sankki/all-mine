@@ -49,7 +49,7 @@ import {
 } from 'vue';
 
 const props = defineProps({
-    value: String,
+    value: [String, Number],
     placeholder: {
         type: String,
         default: '请输入'

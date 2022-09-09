@@ -42,7 +42,7 @@ const emit = defineEmits([
 const props = defineProps({
     // 所选值（布尔或数组）
     value: {
-        type: Boolean,
+        type: null,
     },
     // 不可选
     disabled: {

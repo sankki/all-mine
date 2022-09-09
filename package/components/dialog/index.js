@@ -33,7 +33,7 @@ export default {
                 render(null, container);
                 container.remove();
             };
-            console.log('instance', instance);
+            // console.log('instance', instance);
             return new Promise((resolve, reject) => {
                 instance.props.confirm = resolve;
                 instance.props.cancel = reject;

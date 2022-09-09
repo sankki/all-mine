@@ -34,7 +34,7 @@ export default {
                 render(null, container);
                 container.remove();
             };
-            console.log('instance', instance);
+            // console.log('instance', instance);
             return instance;
         };
         const $message = (arg) => {

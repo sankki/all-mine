@@ -37,7 +37,7 @@ defineProps({
     },
 });
 const ins = getCurrentInstance();
-console.log('ins', ins)
+// console.log('ins', ins)
 // const { label } = toRefs(props);
 // const label = props.label;
 const tableColumnData = inject('tableColumnData');
