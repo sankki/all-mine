@@ -13,12 +13,9 @@
             }"
             ref="tipEl"
             :style="tipStyle"
-            @mouseenter="onMouseEnter"
-            @mouseleave="onMouseLeave"
         >
             <Transition name="am-tooltip-in" v-on:after-leave="afterLeave">
                 <div
-                    ref="popEl"
                     class="am-tooltip__tip-inner"
                     v-show="popShow"
                     :style="`transform: translate(${tipX},${tipY});padding: ${margin}`"
@@ -84,7 +81,6 @@ const props = defineProps({
 const tipEl = ref(null);
 let tipElement = null;
 const triggerEl = ref(null)
-const popEl = ref(null)
 const popShow = ref(false)
 const fatherScrollEls = ref([])
 let ro = null;

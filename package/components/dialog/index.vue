@@ -62,10 +62,8 @@ const clickConfirmBtn = () => {
 const afterLeave = () => {
     if (clickResult === 'cancel') {
         props.cancel();
-        console.log('执行了cancel');
     } else {
         props.confirm();
-        console.log('执行了confirm');
     }
     props.destroySelf();
 };

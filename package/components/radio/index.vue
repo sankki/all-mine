@@ -59,14 +59,14 @@ const props = defineProps({
 });
 
 const selected = computed(() => {
-    if (props.label) {
+    if (props.label !== undefined) {
         return props.value === props.label;
     }
     return props.value;
 });
 
 const handleClick = () => {
-    if (props.label) {
+    if (props.label !== undefined) {
         emit('update:value', props.label);
         emit('change', props.label);
     } else {
