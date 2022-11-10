@@ -135,9 +135,8 @@ const onMouseEnter = () => {
     popShow.value = true
 }
 const onMouseLeave = () => {
-    if(props.disabled) return;
     if (props.trigger !== 'hover') return
-    popShow.value = false
+    popShow.value = false;
 }
 const check = async () => {
     if(!triggerEl.value) return;

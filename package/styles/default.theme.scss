@@ -91,20 +91,44 @@
 }
 
 ::-webkit-input-placeholder {
-    color: var(--placeholder);
+    color: var(--c-placeholder);
 }
 
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+// 默认滚动条（白底、默认隐藏）
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
     background: transparent;
 }
-
-::-webkit-scrollbar-thumb {
-    border-radius: 6px;
+*::-webkit-scrollbar-thumb {
     border: 2px solid transparent;
     background-clip: content-box;
-    background-color: rgba(0,0,0,.08);
+    background-color: rgba(0,0,0,0);
+    transition: background 2s;
+}
+*::-webkit-scrollbar-corner {
+    background: transparent;
+}
+*:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.3);
+}
+// 黑底、默认隐藏
+.am-scrollbox-hide-dark {
+    &:hover::-webkit-scrollbar-thumb, *:hover::-webkit-scrollbar-thumb {
+        background-color: rgba(255,255,255,.3)!important;
+    }
+}
+// 白底、默认显示
+.am-scrollbox-show-light {
+    &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,.3)!important;
+    }
+}
+// 黑底、默认显示
+.am-scrollbox-show-dark {
+    &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
+        background-color: rgba(255,255,255,.3)!important;
+    }
 }
 
 input, textarea {

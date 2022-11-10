@@ -115,7 +115,8 @@ const props = defineProps({
     bdStyle: {
         type: Object,
         default: () => {},
-    }
+    },
+    // watch dom
 });
 const columnData = ref([]);
 provide('tableColumnData', columnData);
@@ -174,12 +175,14 @@ const Cell = defineComponent({
 .am-table {
     width: 100%;
     background: #fff;
+    white-space: initial;
     th,td,tr,table {
         border: none;
     }
     &__hd {
         border: 1px solid var(--c-border);
         background: var(--c-bglight);
+        display: inline-flex;
         > table {
             width: 100%;
             table-layout: fixed;
@@ -204,6 +207,7 @@ const Cell = defineComponent({
     &__bd {
         border: 1px solid var(--c-border);
         border-top: none;
+        display: inline-flex;
         > table {
             width: 100%;
             table-layout: fixed;

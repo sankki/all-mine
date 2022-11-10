@@ -90,6 +90,37 @@ const changeInput = () => {
 ```
 :::
 
+## 前后缀
+
+文本框、可自动增高。
+
+:::demo
+```vue
+<template>
+    <AmInput
+        v-model:value="value"
+        suffix="%"
+        prefix="百分比"
+    />
+    <div style="background: #000;padding: 16px;">
+        <AmInput
+            scene="dark"
+            v-model:value="value"
+            suffix="%"
+            prefix="百分比" 
+        />
+    </div>
+</template>
+
+
+<script setup>
+import { ref } from 'vue';
+const value = ref(`hello
+xux!`);
+</script>
+```
+:::
+
 
 ## 属性
 

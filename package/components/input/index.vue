@@ -7,9 +7,13 @@
         }"
     >
         <!-- 主体 -->
-        <div class="am-input__inner">
+        <label class="am-input__inner">
+            <div class="am-input__prefix" v-if="prefix">
+                {{ prefix }}
+            </div>
+
             <textarea
-                :readOnly="readOnly"
+                :readonly="readonly"
                 ref="textareaEl"
                 v-if="type === 'textarea'"
                 spellcheck="false"
@@ -24,7 +28,7 @@
                 @keyup.enter="onEnter"
             ></textarea>
             <input
-                :readOnly="readOnly"
+                :readonly="readonly"
                 v-else
                 spellcheck="false"
                 :type="type"
@@ -38,7 +42,11 @@
                 @enter="onEnter"
                 @keyup.enter="onEnter"
             />
-        </div>
+            
+            <div class="am-input__suffix" v-if="suffix">
+                {{ suffix }}
+            </div>
+        </label>
     </div>
 </template>
 
@@ -63,13 +71,21 @@ const props = defineProps({
         type: String,
         default: 'light', // light dark
     },
-    readOnly: {
+    readonly: {
         type: Boolean,
         default: false,
     },
     autocomplete: {
         type: Boolean,
         default: false,
+    },
+    prefix: {
+        type: String,
+        default: '',
+    },
+    suffix: {
+        type: String,
+        default: '',
     }
 });
 const emit = defineEmits([
@@ -139,6 +155,7 @@ watch(
         input {
             background: none;
             width: 100%;
+            flex: 1;
             font-size: 14px;
             border: none;
             padding: 0 8px;
@@ -148,11 +165,12 @@ watch(
             z-index: 2;
         }
         textarea {
+            flex: 1;
             width: 100%;
             height: 28px;
             resize: none;
             background: none;
-            padding: 5px 8px;
+            padding: 4px 8px;
             line-height: 20px;
             font-size: 14px;
             border: none;
@@ -173,6 +191,26 @@ watch(
             opacity: .2;
         }
     }
+    &__prefix {
+        padding-left: 4px;
+        font-size: 12px;
+        display: inline-flex;
+        align-items: center;
+        color: var(--c-sup);
+        cursor: text;
+        position: relative;
+        z-index: 2;
+    }
+    &__suffix {
+        padding-right: 4px;
+        font-size: 12px;
+        display: inline-flex;
+        align-items: center;
+        color: var(--c-sup);
+        cursor: text;
+        position: relative;
+        z-index: 2;
+    }
     // 修饰
     &:hover {
     }
@@ -190,6 +228,12 @@ watch(
             border: 1px solid var(--cd-border);
             background: var(--cd-bglight);
             color: var(--cd-main);
+        }
+        .am-input__prefix {
+            color: var(--cd-sup);
+        }
+        .am-input__suffix {
+            color: var(--cd-sup);
         }
         &.is-focus {
             .am-input__inner {

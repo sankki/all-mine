@@ -4,6 +4,7 @@
         class="am-tab"
         :class="{
             [`is-${mode}`]: mode,
+            [`is-${scene}`]: scene,
         }"    
     >
         <div
@@ -37,7 +38,12 @@ defineProps({
     mode: {
         type: String,
         default: 'default', // default 默认 line 线型  
-    }
+    },
+    // 场景
+    scene: {
+        type: String,
+        default: 'light', // light dark
+    },
 });
 
 const emit = defineEmits(['update:value']);
@@ -154,6 +160,42 @@ const clickTab = (item) => {
                 font-weight: bold;
                 background: none;
             } 
+        }
+    }
+
+    // 暗系
+    &.is-dark {
+        &.is-default {
+            .am-tab__item {
+                color: var(--cd-sub);
+                transition: background .1s;
+                &::before {
+                    background: var(--cd-bglight);
+                }
+                &.is-active {
+                    color: var(--cd-main);
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+                &:hover:not(.is-active) {
+                    background: var(--cd-bglight);
+                } 
+            }
+        }
+        &.is-line {
+            .am-tab__item {
+                color: var(--cd-sub);
+                &::before {
+                    background: var(--cd-primary);
+                }
+                &.is-active {
+                    color: var(--cd-main);
+                }
+                &:hover:not(.is-active) {
+                    color: var(--cd-main);
+                } 
+            }
         }
     }
 }
