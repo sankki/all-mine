@@ -53,7 +53,7 @@
 <script setup>
 import autosize from 'autosize';
 import {
-    defineProps, defineEmits, ref, onMounted, watch,
+    defineProps, defineEmits, ref, onMounted, watch, nextTick
 } from 'vue';
 
 const props = defineProps({
@@ -123,11 +123,13 @@ const checkAutosize = () => {
     if (props.type !== 'textarea') return;
     if (props.autosize) {
         autosize(textareaEl.value);
+        autosize.update(textareaEl.value);
     } else {
         autosize.destroy(textareaEl.value);
     }
 };
-onMounted(() => {
+onMounted(async () => {
+    await nextTick();
     checkAutosize();
 });
 watch(

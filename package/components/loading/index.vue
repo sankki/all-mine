@@ -34,7 +34,7 @@
                         >
                         </circle>
                     </svg>
-                    <span>加载中</span>
+                    <span>{{ content }}</span>
                 </div>
             </div>
         </transition>
@@ -48,6 +48,10 @@ import {
 
 const props = defineProps({
     destroySelf: Function,
+    content: {
+        type: String,
+        default: '加载中',
+    },
 });
 const show = ref(false);
 const realShow = ref(false);

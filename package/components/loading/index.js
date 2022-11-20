@@ -8,9 +8,7 @@ export default {
         const showLoading = (arg) => {
             // 生成messgae的内容
             let initData = {
-                content: 'this is a message',
-                type: '',
-                duration: 2000,
+                content: '加载中',
             };
             // 选择挂载的父元素
             let father = document.body;
