@@ -27,16 +27,16 @@ defineProps({
     height: 28px;
     display: flex;
     align-items: center;
-    color: #666;
+    color: var(--c-sub);
     cursor: pointer;
     border-radius: 2px;
     &.is-selected {
-        background: #e5e5e5;
-        color: #333;
+        background: rgba(0,0,0,.07);
+        color: var(--c-main);
         font-weight: bold;
     }
     &:not(.is-selected):hover {
-        background: #eee;
+        background: rgba(0,0,0,.04);
     }
 }
 </style>

@@ -121,6 +121,7 @@ provide('setValue', (option) => {
         emit('change', newValue);
     } else {
         // 单选
+        if(option.value === props.value) return;
         emit('update:value', option.value);
         emit('change', option.value);
         dropdownCm.value.hideDropdown();

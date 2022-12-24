@@ -24,7 +24,7 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue';
 
-defineProps({
+const props = defineProps({
     tabs: {
         type: Array,
         default: () => [
@@ -46,9 +46,11 @@ defineProps({
     },
 });
 
-const emit = defineEmits(['update:value']);
+const emit = defineEmits(['update:value', 'change']);
 const clickTab = (item) => {
+    if(item.value === props.value) return;
     emit('update:value', item.value);
+    emit('change', item.value);
 };
 </script>
 
@@ -74,7 +76,7 @@ const clickTab = (item) => {
             color: var(--c-sub);
             position: relative;
             overflow: hidden;
-            transition: background .1s;
+            transition: background .2s;
             span {
                 position: relative;
                 z-index: 2;
@@ -98,12 +100,14 @@ const clickTab = (item) => {
                 // background: var(--primary);
                 // color: #fff;
                 // border-color: #ddd;
-                &::before {
-                    opacity: 1;
-                }
+                // &::before {
+                //     opacity: 1;
+                // }
+                background: rgba(0,0,0,.07);
             }
             &:hover:not(.is-active) {
-                background: var(--c-bglight);
+                // background: var(--c-bglight);
+                background: rgba(0,0,0,.04);
             } 
         }
     }

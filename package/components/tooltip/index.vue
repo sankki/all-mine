@@ -11,6 +11,7 @@
             :class="{
                 [`is-${scene}`]: true,
             }"
+            v-if="loaded"
             ref="tipEl"
             :style="tipStyle"
         >
@@ -36,7 +37,7 @@ import {
     observeElResize,
     offObserveElResize,
 } from '../../utils/dom'
-import { defineProps, ref, computed, onMounted, watch, onUnmounted } from 'vue'
+import { defineProps, ref, computed, onMounted, watch, onUnmounted, nextTick, onBeforeUnmount } from 'vue'
 import popupManager from '../../common/popup-manager'
 
 const props = defineProps({
@@ -80,6 +81,7 @@ const props = defineProps({
 })
 const tipEl = ref(null);
 let tipElement = null;
+const loaded = ref(false);
 const triggerEl = ref(null)
 const popShow = ref(false)
 const fatherScrollEls = ref([])
@@ -120,22 +122,27 @@ const tipStyle = computed(() => {
         zIndex: zIndex.value,
     }
 })
-onMounted(() => {
+const loadDom = () => {
+    if(tipElement) return;
     document.body.appendChild(tipEl.value);
     tipElement = tipEl.value;
-})
+}
 onUnmounted(() => {
     tipElement && tipElement.remove();
     endObserve();
 })
 
-const onMouseEnter = () => {
+const onMouseEnter = async () => {
     if(props.disabled) return;
-    if (props.trigger !== 'hover') return
-    popShow.value = true
+    if (props.trigger !== 'hover') return;
+    loaded.value = true;
+    await nextTick();
+    loadDom();
+    popShow.value = true;
 }
 const onMouseLeave = () => {
-    if (props.trigger !== 'hover') return
+    if (props.trigger !== 'hover') return;
+    // loaded.value = false;
     popShow.value = false;
 }
 const check = async () => {
