@@ -27,7 +27,9 @@
                         </th>
                         <th
                             class="am-table__th-scroll-bar"
-                            :style="'width:' + scrollBarWidth + 'px;'"
+                            :style="{
+                                'width': `${scrollBarWidth}px`,
+                            }"
                         ></th>
                     </tr>
                 </thead>
@@ -86,8 +88,10 @@ import {
     defineEmits,
     provide,
     h,
+    nextTick,
+    onBeforeUnmount
 } from 'vue';
-import { observeElResize } from '../../utils/dom';
+import { observeElResize, offObserveElResize } from '../../utils/dom';
 
 const props = defineProps({
     // 表格数据
@@ -129,15 +133,18 @@ const tableBdStyle = computed(() => ({
 }));
 const scrollBarWidth = ref(0);
 const bd = ref(null);
+const getScrollBarWidth = async () => {
+    if(!bd.value) return;
+    await nextTick();
+    scrollBarWidth.value = Math.max((bd.value.offsetWidth - bd.value.firstChild.offsetWidth - 2),  0);
+}
+let ro;
 onMounted(() => {
-    observeElResize(bd.value.firstChild, () => {
-        if(!bd.value) return;
-        const beRect = bd.value.offsetWidth;
-        const tableRect = bd.value.firstChild.getBoundingClientRect();
-        scrollBarWidth.value = bd.value.offsetWidth - bd.value.firstChild.offsetWidth - 2;
-        // console.log('# scrollBarWidth',scrollBarWidth.value);
-        // console.log('#beRect', beRect, tableRect);
-    });
+    getScrollBarWidth();
+    ro = observeElResize(bd.value.firstChild, getScrollBarWidth);
+});
+onBeforeUnmount(() => {
+    offObserveElResize(bd.value, ro);
 });
 
 // 事件

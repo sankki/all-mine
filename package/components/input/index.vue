@@ -53,7 +53,7 @@
 <script setup>
 import autosize from 'autosize';
 import {
-    defineProps, defineEmits, ref, onMounted, watch, nextTick
+    defineProps, defineEmits, ref, onMounted, watch, nextTick, defineExpose
 } from 'vue';
 
 const props = defineProps({
@@ -138,6 +138,9 @@ watch(
         checkAutosize();
     },
 );
+watch(() => props.value, () => {
+    checkAutosize();
+})
 </script>
 
 <style lang="scss">
