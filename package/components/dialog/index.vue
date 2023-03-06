@@ -1,18 +1,17 @@
 <template>
-    <div class="am-dialog">
-        <AmPopup
-            width="480px"
-            v-model:show="show"
-            :title="title"
-            @after-leave="afterLeave"
-        >
-            <p>{{ content }}</p>
-            <template v-slot:ft>
-                <AmButton @click="clickCancelBtn">{{ cancelText }}</AmButton>
-                <AmButton mode="primary" @click="clickConfirmBtn">{{ confirmText }}</AmButton>
-            </template>
-        </AmPopup>
-    </div>
+    <AmPopup
+        popup-class="am-dialog"
+        width="480px"
+        v-model:show="show"
+        :title="title"
+        @after-leave="afterLeave"
+    >
+        <p>{{ content }}</p>
+        <template v-slot:ft>
+            <AmButton @click="clickCancelBtn">{{ cancelText }}</AmButton>
+            <AmButton mode="primary" @click="clickConfirmBtn">{{ confirmText }}</AmButton>
+        </template>
+    </AmPopup>
 </template>
 
 <script setup>
@@ -68,3 +67,12 @@ const afterLeave = () => {
     props.destroySelf();
 };
 </script>
+
+<style lang="scss">
+.am-dialog {
+    .am-popup__bd {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+</style>

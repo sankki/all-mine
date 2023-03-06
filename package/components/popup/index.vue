@@ -16,7 +16,7 @@
         </transition>
         <!-- 主体 -->
         <transition name="popup-anime" v-on:after-leave="afterLeave">
-            <div class="am-popup__popup" :style="popupStyle" v-show="show">
+            <div class="am-popup__popup" :class="popupClass" :style="popupStyle" v-show="show">
                 <div class="am-popup__inner">
                     <div class="am-popup__hd" v-if="$slots.hd || title">
                         <div class="am-popup__title" v-if="title">{{ title }}</div>
@@ -56,6 +56,10 @@ const vClickoutside = clickoutside;
 const emit = defineEmits(['update:show', 'after-leave']);
 
 const props = defineProps({
+    popupClass: {
+        type: String,
+        default: '',
+    },
     // 显示
     show: {
         type: Boolean,

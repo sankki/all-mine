@@ -31,12 +31,12 @@ defineProps({
     cursor: pointer;
     border-radius: 2px;
     &.is-selected {
-        background: rgba(0,0,0,.07);
+        background: #f5f5f7;
         color: var(--c-main);
         font-weight: bold;
     }
     &:not(.is-selected):hover {
-        background: rgba(0,0,0,.04);
+        background: #f7f7f9;
     }
 }
 </style>

@@ -84,16 +84,13 @@ onMounted(() => {
 // 关闭与摧毁
 let closePromiseResolve;
 const remove = () => {
-    console.log(props);
     props.destroySelf();
 };
 const afterLeave = () => {
-    console.log('afterLeave');
     closePromiseResolve();
     remove();
 };
 const close = async () => {
-    console.log('执行关闭');
     show.value = false;
     await new Promise((resolve) => {
         closePromiseResolve = resolve;

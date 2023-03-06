@@ -18,7 +18,6 @@
 <script setup>
 import { computed, defineProps, inject } from 'vue';
 const form = inject('form');
-console.log(form);
 
 const props = defineProps({
     label: {

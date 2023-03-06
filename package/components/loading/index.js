@@ -22,7 +22,6 @@ export default {
             const vm = createVNode(AmLoading, {
                 ...initData,
             });
-            console.log(vm);
             render(vm, container);
             father.appendChild(container.firstElementChild);
             const instance = vm.component;
@@ -44,7 +43,6 @@ export default {
             } else {
                 await Promise.all(instances.map((i) => i.exposed.close()));
             }
-            console.log('处理完毕');
         };
         app.provide('$loading', $loading);
     },

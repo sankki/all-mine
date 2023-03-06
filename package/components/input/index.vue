@@ -131,6 +131,18 @@ const checkAutosize = () => {
 onMounted(async () => {
     await nextTick();
     checkAutosize();
+
+    // 增加方法
+    textareaEl.value && !textareaEl.value.changeValue && (textareaEl.value.changeValue = async (value) => {
+        onInput({
+            target: {
+                value,
+            }
+        })
+        onChange();
+        await nextTick();
+        checkAutosize();
+    })
 });
 watch(
     () => props.autosize,

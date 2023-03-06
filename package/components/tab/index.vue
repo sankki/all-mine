@@ -103,11 +103,11 @@ const clickTab = (item) => {
                 // &::before {
                 //     opacity: 1;
                 // }
-                background: rgba(0,0,0,.07);
+                background: #f5f5f7;
             }
             &:hover:not(.is-active) {
                 // background: var(--c-bglight);
-                background: rgba(0,0,0,.04);
+                background: #f7f7f9;
             } 
         }
     }
