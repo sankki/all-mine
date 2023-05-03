@@ -3,13 +3,13 @@
      * 颜色
      */
     // 主题色
-    --c-primary:      #1E44C2;
+    --c-primary:      #387dd0;
     --cd-primary:     #4582E6;
 
     // 功能色
-    --c-success:      #10a341; // 成功
+    --c-success:      #00b36f; // 成功
     --c-warning:      #ed7b2f; // 警告
-    --c-fail:         #D92424; // 失败
+    --c-fail:         #e94d4d; // 失败
     --c-info:         #0594fa; // 消息
     --cd-success:     #1aba4d; // 成功
     --cd-warning:     #ed7b2f; // 警告
@@ -17,10 +17,10 @@
     --cd-info:        #0594fa; // 消息
     
     // 彩虹色
-    --c-red:          #e34d59;
+    --c-red:          #e94d4d;
     --c-orange:       #ed7b2f;
-    --c-yellow:       #ebb105;
-    --c-green:        #00a870;
+    --c-yellow:       #f2c94c;
+    --c-green:        #00b36f;
     --c-blue:         #0969da;
     --c-purple:       #834ec2;
     --c-pink:         #ed49b4;
@@ -34,15 +34,15 @@
 
     // 背景色
     --c-bg:           #fff; // 主色背景
-    --c-bglight:      #f2f2f2; // 浅色背景
-    --c-bgdark:       #ddd;
+    --c-bglight:      #f1f2f3; // 浅色背景
+    --c-bgdark:       #e6e7e8;
     --cd-bg:          #222; // 主色背景
     --cd-bglight:     #333; // 浅色背景
 
     // 字体色
-    --c-main:         #333; // 主色
-    --c-sub:          #666; // 二级色
-    --c-sup:          #aaa; // 辅助色
+    --c-main:         #2f3948; // 主色
+    --c-sub:          #66717b; // 二级色
+    --c-sup:          #919ca7; // 辅助色
     --c-placeholder:  #aaa; // 默认文字颜色
     
     --cd-main:        #fff; // 主色
@@ -51,7 +51,7 @@
     --cd-placeholder: #777; // 默认文字颜色
 
     // 装饰色
-    --c-border:       #ddd; // 边框色
+    --c-border:       #dfe1e4; // 边框色
     --cd-border:      #444; // 边框色
 
     // 常用文字字号行高比
@@ -72,9 +72,9 @@
     /*
      * 阴影
      */
-    --s-low:     0px 4px 12px rgba(0, 0, 0, 0.13); // 低层
-    --s-middle:  0px 4px 12px rgba(0, 0, 0, 0.10); // 中层
-    --s-high:   0px 4px 12px rgba(0, 0, 0, 0.07); // 高层
+    --s-low:     0px 4px 12px rgba(0, 0, 0, 0.16); // 低层
+    --s-middle:  0px 4px 24px rgba(0, 0, 0, 0.20); // 中层
+    --s-high:   0px 4px 48px rgba(0, 0, 0, 0.24); // 高层
 
     // 默认字体
     --font-family: -apple-system,BlinkMacSystemFont,

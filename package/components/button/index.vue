@@ -124,6 +124,7 @@ const handleClick = (e) => {
     position: relative;
     overflow: hidden;
     color: var(--c-main);
+    font: var(--f-14);
     &:after {
         content: '';
         display: inline-flex;
@@ -143,6 +144,8 @@ const handleClick = (e) => {
     }
     .am-icon {
         order: 5;
+        z-index: 2;
+        position: relative;
     }
     .am-icon.is-front + &__content {
         margin-left: 4px;
@@ -171,14 +174,16 @@ const handleClick = (e) => {
             background: var(--c-bg);
             color: var(--c-main);
             border: 1px solid var(--c-border);
+            box-shadow: rgba(0, 0, 0, 0.09) 0px 1px 1px;
             &:hover {
                 &:after {
-                    background: rgba(0,0,0,.06);
+                    background: var(--c-bglight);
                 }
             }
             &.is-down {
+                box-shadow: none;
                 &:after {
-                    background: rgba(0,0,0,.12);
+                    background: var(--c-bgdark);
                 }
             }
             &.is-selected {
@@ -188,14 +193,16 @@ const handleClick = (e) => {
         &.is-primary {
             background: var(--c-primary);
             color: #fff;
+            // box-shadow: rgba(0, 0, 0, 0.09) 0px 1px 1px;
             &:hover {
                 &:after {
-                    background: rgba(0,0,0,.2);
+                    background: rgba(0,0,0,.1);
                 }
             }
             &.is-down {
+                box-shadow: none;
                 &:after {
-                    background: rgba(0,0,0,.4);
+                    background: rgba(0,0,0,.2);
                 }
             }
             &.is-selected {
@@ -206,14 +213,16 @@ const handleClick = (e) => {
             border: 1px solid var(--c-primary);
             color: var(--c-primary);
             background: #fff;
+            // box-shadow: rgba(0, 0, 0, 0.09) 0px 1px 1px;
             &:hover {
                 &:after {
-                    background: rgba(0,0,0,.08);
+                    background: var(--c-bglight);
                 }
             }
             &.is-down {
+                box-shadow: none;
                 &:after {
-                    background: rgba(0,0,0,.16);
+                    background: var(--c-bgdark);
                 }
             }
             &.is-selected {
@@ -221,14 +230,17 @@ const handleClick = (e) => {
             }
         }
         &.is-text {
+            border: 1px solid transparent;
             &:hover {
+                // text-decoration: underline;
                 &:after {
-                    background: rgba(0,0,0,.06);
+                    background: var(--c-bglight);
                 }
             }
             &.is-down {
+                border-color: var(--c-border);
                 &:after {
-                    background: rgba(0,0,0,.12);
+                    background: var(--c-bgdark);
                 }
             }
             &.is-selected {
@@ -236,15 +248,18 @@ const handleClick = (e) => {
             }
         }
         &.is-primary-text {
+            border: 1px solid transparent;
             color: var(--c-primary);
             &:hover {
+                // text-decoration: underline;
                 &:after {
-                    background: rgba(0,0,0,.06);
+                    background: var(--c-bglight);
                 }
             }
             &.is-down {
+                border-color: var(--c-primary);
                 &:after {
-                    background: rgba(0,0,0,.12);
+                    background: var(--c-bgdark);
                 }
             }
             &.is-selected {

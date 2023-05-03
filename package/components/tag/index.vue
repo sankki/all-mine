@@ -77,8 +77,7 @@ const tagStyle = computed(() => {
 .am-tag {
     display: inline-flex;
     align-items: center;
-    line-height: 20px;
-    font-size: 14px;
+    font: var(--f-14);
     padding: 2px 6px;
     background: var(--c-bglight);
     color: var(--c-main);

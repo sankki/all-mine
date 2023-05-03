@@ -78,7 +78,7 @@ const hanlderClick = () => {
         display: flex;
         align-items: center;
         &:hover {
-            background: rgba(0,0,0, .08);
+            background: var(--c-bglight);
         }
     }
     &__icon {

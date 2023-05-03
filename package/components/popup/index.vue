@@ -147,6 +147,7 @@ const clickMask = () => {
         height: 100vh;
         left: 0;
         top: 0;
+        // background-color: rgba(255, 255, 255, 0.65);
         background: rgba(0, 0, 0, 0.6);
         &.mask-anime-enter-active,
         &.mask-anime-leave-active {
@@ -184,21 +185,21 @@ const clickMask = () => {
         flex-direction: column;
         transform: translateY(calc(0.3 * (100% - 90vh)));
         background: #fff;
-        border-radius: 2px;
+        border-radius: 4px;
         position: relative;
         z-index: 3;
+        box-shadow: var(--s-high);
     }
     &__hd {
         // position: relative;
     }
     &__title {
         margin: auto;
-        font-size: 16px;
-        line-height: 20px;
+        font: var(--f-16);
         font-weight: bold;
         display: flex;
         align-items: center;
-        padding: 16px 24px 0 24px;
+        padding: 24px 32px 0 32px;
         color: var(--c-main);
     }
     &__close {
@@ -213,7 +214,7 @@ const clickMask = () => {
     }
     &__bd {
         flex: 1;
-        padding: 16px 24px;
+        padding: 12px 32px;
     }
     &__ft {
         display: flex;

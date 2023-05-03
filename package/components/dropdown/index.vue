@@ -179,6 +179,9 @@ defineExpose({
             &:after {
                 outline-color: var(--c-primary);
             }
+            &:hover {
+                background: #fff;
+            }
         }
     }
     &.is-dark {

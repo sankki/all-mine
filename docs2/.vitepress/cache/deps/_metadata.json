@@ -1,0 +1,41 @@
+{
+  "hash": "dc2ba1fc",
+  "browserHash": "6e0e92a3",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/.pnpm/vue@3.2.25/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "d84e902c",
+      "needsInterop": false
+    },
+    "autosize": {
+      "src": "../../../../node_modules/.pnpm/autosize@5.0.2/node_modules/autosize/dist/autosize.esm.js",
+      "file": "autosize.js",
+      "fileHash": "1d3dca2c",
+      "needsInterop": false
+    },
+    "nanoid": {
+      "src": "../../../../node_modules/.pnpm/nanoid@3.3.6/node_modules/nanoid/index.browser.js",
+      "file": "nanoid.js",
+      "fileHash": "04c6713b",
+      "needsInterop": false
+    },
+    "@babel/types": {
+      "src": "../../../../node_modules/_@babel_types@7.20.0@@babel/types/lib/index.js",
+      "file": "@babel_types.js",
+      "fileHash": "c2c006f7",
+      "needsInterop": true
+    },
+    "macy": {
+      "src": "../../../../node_modules/.pnpm/macy@2.5.1/node_modules/macy/dist/macy.js",
+      "file": "macy.js",
+      "fileHash": "27567e4d",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-RSJERJUL": {
+      "file": "chunk-RSJERJUL.js"
+    }
+  }
+}

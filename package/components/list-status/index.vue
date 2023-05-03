@@ -35,7 +35,6 @@
 </template>
 
 <script setup>
-import { is } from '@babel/types';
 import {
     defineProps,
     onMounted,
@@ -127,8 +126,7 @@ onUnmounted(() => {
         width: 100%;
         display: flex;
         justify-content: center;
-        font-size: 14px;
-        height: 32px;
+        font: var(--f-14);
         align-items: center;
         .am-icon {
             margin-right: 2px;

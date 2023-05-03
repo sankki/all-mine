@@ -22,21 +22,21 @@ defineProps({
 
 <style lang="scss">
 .am-list-item {
-    font-size: 14px;
+    font: var(--f-14);
     padding: 0 16px;
-    height: 28px;
+    height: 32px;
     display: flex;
     align-items: center;
     color: var(--c-sub);
     cursor: pointer;
     border-radius: 2px;
     &.is-selected {
-        background: #f5f5f7;
+        background: var(--c-bglight);
         color: var(--c-main);
         font-weight: bold;
     }
     &:not(.is-selected):hover {
-        background: #f7f7f9;
+        background: var(--c-bglight);
     }
 }
 </style>

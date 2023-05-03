@@ -183,6 +183,8 @@ const Cell = defineComponent({
     width: 100%;
     background: #fff;
     white-space: initial;
+    display: flex;
+    flex-direction: column;
     th,td,tr,table {
         border: none;
     }
@@ -200,7 +202,7 @@ const Cell = defineComponent({
                     > th {
                         padding: 8px 12px;
                         color: var(--c-sub);
-                        font-size: 14px;
+                        font: var(--f-14);
                         text-align: left;
                         border-right: 1px solid var(--c-border);
                         &:nth-last-child(1), &:nth-last-child(2) {
@@ -225,7 +227,7 @@ const Cell = defineComponent({
                     border-bottom: 1px solid var(--c-border);
                     > td {
                         padding: 8px 12px;
-                        font-size: 14px;
+                        font: var(--f-14);
                         text-align: left;
                         color: var(--c-main);
                         border-right: 1px solid var(--c-border);

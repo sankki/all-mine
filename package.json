@@ -1,7 +1,8 @@
 {
   "name": "all-mine",
-  "version": "2.0.44",
+  "version": "2.0.45",
   "description": "",
+  "type": "module",
   "directories": {
     "doc": "doc"
   },
@@ -9,22 +10,21 @@
     "lib",
     "mini-lib"
   ],
-  "main": "./lib/all-mine.es.js",
-  "module": "./lib/all-mine.umd.js",
+  "main": "./lib/all-mine.js",
   "exports": {
     ".": {
-      "import": "./lib/all-mine.es.js",
-      "require": "./lib/all-mine.umd.js"
+      "import": "./lib/all-mine.js"
     },
     "./lib/style.css": "./lib/style.css"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:dev": "vitepress dev docs2",
+    "docs:build": "vitepress build docs2",
     "docs:serve": "vitepress serve docs",
-    "ci-publish": "node cicd/ci-publish.js"
+    "ci-publish": "node cicd/ci-publish.js",
+    "docs:preview": "vitepress preview docs2"
   },
   "dependencies": {
     "autosize": "^5.0.1",
@@ -49,13 +49,11 @@
     "eslint-plugin-vue": "^7.20.0",
     "prettier": "^2.4.1",
     "prettier-eslint": "^13.0.0",
-    "process": "^0.11.10",
     "sass": "^1.43.3",
     "sass-loader": "^12.2.0",
     "unplugin-auto-import": "^0.5.3",
-    "vite": "2.8.0",
-    "vitepress": "^0.21.6",
-    "vitepress-theme-demoblock": "^1.4.2",
+    "vite": "^4.3.3",
+    "vitepress": "^1.0.0-alpha.75",
     "vue": "3.2.25"
   },
   "repository": {

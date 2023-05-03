@@ -1,55 +1,38 @@
 <template>
     <div class="am-logo">
-        <div class="am-logo__main">
-            <!-- 图片logo -->
-            <img v-if="url" :src="url"/>
-            <!-- 文字log -->
-            <span v-else>{{ name }}</span>
-        </div>
-        <div class="am-logo__sub" v-if="sub">
-            <span>{{ sub }}</span>
-        </div>
+        <!-- icon + sankki + light -->
+        <img v-if="mode === 'light-all'" src="//cos.sankki.com/c/20230502233419/logo-light-all.svg" />
+
+        <!-- icon + sankki + dark -->
+        <img v-else-if="mode === 'dark-all'" src="//cos.sankki.com/c/20230502233458/logo-dark-all.svg" />
+
+        <!-- icon + light -->
+        <img v-else-if="mode === 'light-icon'" src="//cos.sankki.com/c/20230502233526/logo-light-icon.svg" />
+
+        <!-- icon + dark -->
+        <img v-else-if="mode === 'dark-icon'" src="//cos.sankki.com/c/20230502233550/logo-dark-icon.svg" />
+
+        <!-- icon + black -->
+        <img v-else-if="mode === 'black'" src="//cos.sankki.com/c/20230502233615/logo-light-black.svg" />
     </div>
 </template>
 
 <script setup>
 import { defineProps } from 'vue';
 defineProps({
-    name: {
+    mode: {
         type: String,
-        default: 'all-mine',
-    },
-    url: {
-        type: String,
-        default: '',
-    },
-    sub: {
-        type: String,
-        default: '',
+        default: 'light-all', // light-all dark-all light-icon dark-icon black
     }
 })
 </script>
 
 <style lang="scss">
 .am-logo {
-    display: flex;
-    align-items: center;
-    &__main {
-        img {
-
-        }
-        span {
-            font-weight: bold;
-            font-size: 18px; 
-        }
-    }
-    &__sub {
-        margin-left: 4px;
-        span {
-            font-size: 18px;
-            // font-weight: bold;
-            color: #666;
-        }
+    display: inline-flex;
+    img {
+        width: 100%;
+        height: 100%;
     }
 }
 </style>

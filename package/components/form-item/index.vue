@@ -57,14 +57,16 @@ const labelHdStyle = computed(() => {
     // 默认样式
     display: flex;
     &__hd {
-        line-height: 30px;
         display: flex;
         padding-right: 12px;
-        font-size: 14px;
+        font: var(--f-14);
         color: var(--c-main);
+        align-items: center;
     }
     &__bd {
         display: flex;
+        font: var(--f-14);
+        color: var(--c-main);
     }
 
     // 文字居上
@@ -94,7 +96,7 @@ const labelHdStyle = computed(() => {
                     position: absolute;
                     left: -10px;
                     color: var(--c-fail);
-                    font-family: SimSun,sans-serif;
+                    font-family: SimSun, sans-serif;
                     font-size: 14px;
                 }
             }

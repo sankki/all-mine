@@ -114,14 +114,14 @@ defineExpose({
         transform: translate(-50%, calc(12vh));
         background: #fff;
         color: var(--c-main);
-        border-radius: 4px;
+        border-radius: 2px;
         max-width: 480px;
         min-width: 240px;
-        min-height: 48px;
+        min-height: 44px;
         padding: 4px 24px;
         word-break: break-all;
-        font-size: 14px;
-        line-height: 20px;
+        font: var(--f-14);
+        // line-height: 20px;
         border: 1px solid #8ad0ff;
         color: var(--info);
         background: #e6f7ff;

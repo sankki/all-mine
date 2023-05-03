@@ -116,13 +116,14 @@ defineExpose({
         top: 0;
         width: 100%;
         height: 100%;
+        background-color: rgba(255, 255, 255, 0.65);
         background: rgba(0, 0, 0, 0.6);
         opacity: 1;
         z-index: 999;
     }
     &__card {
         background: #fff;
-        border-radius: 2px;
+        border-radius: 4px;
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -131,6 +132,7 @@ defineExpose({
         max-width: 320px;
         min-width: 200px;
         min-height: 120px;
+        box-shadow: var(--s-high);
         .spinner {
             margin-bottom: 8px;
             .path {

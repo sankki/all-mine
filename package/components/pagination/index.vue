@@ -11,6 +11,7 @@
         />
         <!-- 页码 -->
         <AmButton
+            :mode="item !== current ? 'default' : 'primary'"
             class="am-pagination__number"
             :class="item === current ? 'is-active': ''"
             v-for="(item,index) in pagers"

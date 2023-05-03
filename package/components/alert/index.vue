@@ -78,8 +78,9 @@ const deleteAlert = () => {
     display: inline-flex;
     border: 1px solid var(--c-border);
     padding: 4px 8px;
-    font-size: 14px;
+    font: var(--f-14);
     align-items: center;
+    border-radius: 2px;
     &__icon {
         margin-right: 4px;
         display: inline-flex;

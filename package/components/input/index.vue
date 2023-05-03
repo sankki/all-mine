@@ -169,15 +169,15 @@ watch(() => props.value, () => {
         position: relative;
         width: 100%;
         border-radius: 2px;
+        transition: background .2s;
         input {
             background: none;
             width: 100%;
             flex: 1;
-            font-size: 14px;
+            font: var(--f-14);
             border: none;
             padding: 0 8px;
             height: 28px;
-            line-height: 20px;
             position: relative;
             z-index: 2;
         }
@@ -187,9 +187,8 @@ watch(() => props.value, () => {
             height: 28px;
             resize: none;
             background: none;
-            padding: 4px 8px;
-            line-height: 20px;
-            font-size: 14px;
+            padding: 3px 8px;
+            font: var(--f-14);
             border: none;
             position: relative;
             z-index: 2;
@@ -233,6 +232,7 @@ watch(() => props.value, () => {
     }
     &.is-focus {
         .am-input__inner {
+            background: #fff;
             border: 1px solid var(--c-primary);
             &:after {
                 outline-color: var(--c-primary);

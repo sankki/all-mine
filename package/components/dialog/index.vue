@@ -1,17 +1,19 @@
 <template>
-    <AmPopup
-        popup-class="am-dialog"
-        width="480px"
-        v-model:show="show"
-        :title="title"
-        @after-leave="afterLeave"
-    >
-        <p>{{ content }}</p>
-        <template v-slot:ft>
-            <AmButton @click="clickCancelBtn">{{ cancelText }}</AmButton>
-            <AmButton mode="primary" @click="clickConfirmBtn">{{ confirmText }}</AmButton>
-        </template>
-    </AmPopup>
+    <div class="am-dialog">
+        <AmPopup
+            popup-class="am-dialog"
+            width="480px"
+            v-model:show="show"
+            :title="title"
+            @after-leave="afterLeave"
+        >
+            <p>{{ content }}</p>
+            <template v-slot:ft>
+                <AmButton @click="clickCancelBtn">{{ cancelText }}</AmButton>
+                <AmButton mode="primary" @click="clickConfirmBtn">{{ confirmText }}</AmButton>
+            </template>
+        </AmPopup>
+    </div>
 </template>
 
 <script setup>
@@ -71,8 +73,7 @@ const afterLeave = () => {
 <style lang="scss">
 .am-dialog {
     .am-popup__bd {
-        font-size: 14px;
-        line-height: 22px;
+        font: var(--f-15);
     }
 }
 </style>
