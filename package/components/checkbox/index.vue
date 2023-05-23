@@ -4,7 +4,7 @@
         :class="{
             ['is-active']: selected,
         }"
-        @click.stop="handleClick"
+        @click="handleClick"
     >
         <div class="am-checkbox__box">
             <transition name="am-checkbox-anime">

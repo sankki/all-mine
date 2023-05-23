@@ -5,7 +5,7 @@
             ['is-active']: selected,
             [`is-${scene}`]: scene,
         }"
-        @click.stop="handleClick"
+        @click="handleClick"
     >
         <div class="am-radio__box">
             <transition name="am-radio-anime">
