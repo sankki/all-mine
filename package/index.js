@@ -28,10 +28,19 @@ import AmSwitch from './components/switch/index.vue';
 import AmRadio from './components/radio/index.vue';
 import AmTag from './components/tag/index.vue';
 import AmAlert from './components/alert/index.vue';
+import AmImg from './components/img/index.vue';
+import AmLayoutAdmin from './components/layout-admin/index.vue';
+import AmCard from './components/card/index.vue';
+import AmLayoutConfig from './components/layout-config/index.vue';
+import AmLayoutConfigItem from './components/layout-config-item/index.vue';
+import AmLayoutBar from './components/layout-bar/index.vue';
+import AmLayoutTitle from './components/layout-title/index.vue';
+import AmUserLogin from './components/user-login/index.vue';
 
 import AmMessage from './components/message/index';
 import AmLoading from './components/loading/index';
 import AmDialog from './components/dialog/index';
+import AmViewer from './components/img-viewer/index';
 
 import clickanime from './directives/clickanime/index';
 import clickoutside from './directives/clickoutside/index';
@@ -71,6 +80,14 @@ export default {
         app.component('AmRadio', AmRadio);
         app.component('AmTag', AmTag);
         app.component('AmAlert', AmAlert);
+        app.component('AmImg', AmImg);
+        app.component('AmLayoutAdmin', AmLayoutAdmin);
+        app.component('AmCard', AmCard);
+        app.component('AmLayoutConfig', AmLayoutConfig);
+        app.component('AmLayoutConfigItem', AmLayoutConfigItem);
+        app.component('AmLayoutBar', AmLayoutBar);
+        app.component('AmLayoutTitle', AmLayoutTitle);
+        app.component('AmUserLogin', AmUserLogin);
 
         app.directive('clickoutside', clickoutside);
         app.directive('clickanime', clickanime);
@@ -78,6 +95,7 @@ export default {
         app.use(AmMessage);
         app.use(AmLoading);
         app.use(AmDialog);
+        app.use(AmViewer);
     },
     AmIcon,
     AmButton,
@@ -113,5 +131,14 @@ export default {
     AmRadio,
     AmTag,
     AmAlert,
+    AmImg,
     AmListStatus,
+    AmViewer,
+    AmLayoutAdmin,
+    AmCard,
+    AmLayoutConfig,
+    AmLayoutConfigItem,
+    AmLayoutBar,
+    AmLayoutTitle,
+    AmUserLogin,
 }

@@ -34,6 +34,7 @@
 
     // 背景色
     --c-bg:           #fff; // 主色背景
+    --c-bgthin:       #f9fafb; // 浅色背景
     --c-bglight:      #f3f4f5; // 浅色背景
     --c-bgdark:       #e6e7e8;
     --cd-bg:          #1f2226; // 主色背景
@@ -55,19 +56,19 @@
     --cd-border:      #444; // 边框色
 
     // 常用文字字号行高比
-    --f-48: 48px/56px var(--font-family);
-    --f-40: 40px/48px var(--font-family);
-    --f-36: 36px/44px var(--font-family);
-    --f-32: 32px/40px var(--font-family);
-    --f-28: 28px/36px var(--font-family);
-    --f-24: 24px/32px var(--font-family);
-    --f-20: 20px/28px var(--font-family);
-    --f-18: 18px/26px var(--font-family);
-    --f-16: 16px/24px var(--font-family);
-    --f-15: 15px/23px var(--font-family);
-    --f-14: 14px/22px var(--font-family);
-    --f-13: 13px/21px var(--font-family);
-    --f-12: 12px/20px var(--font-family);
+    --f-48: 48px/60px var(--font-family);
+    --f-40: 40px/52px var(--font-family);
+    --f-36: 36px/48px var(--font-family);
+    --f-32: 32px/44px var(--font-family);
+    --f-28: 28px/40px var(--font-family);
+    --f-24: 24px/36px var(--font-family);
+    --f-20: 20px/32px var(--font-family);
+    --f-18: 18px/30px var(--font-family);
+    --f-16: 16px/28px var(--font-family);
+    --f-15: 15px/27px var(--font-family);
+    --f-14: 14px/26px var(--font-family);
+    --f-13: 13px/25px var(--font-family);
+    --f-12: 12px/24px var(--font-family);
 
     /*
      * 阴影
@@ -77,18 +78,7 @@
     --s-high:   0px 4px 48px rgba(0, 0, 0, 0.24); // 高层
 
     // 默认字体
-    --font-family: -apple-system,BlinkMacSystemFont,
-        Segoe UI,Roboto,Ubuntu,
-        Helvetica Neue,
-        Helvetica,Arial,
-        PingFang SC,
-        Hiragino Sans GB,
-        Microsoft Yahei UI,
-        Microsoft Yahei,
-        Source Han Sans CN,
-        'Segoe UI Emoji',
-        'Apple Color Emoji',
-        sans-serif;
+    --font-family: Inter,-apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,noto sans,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;;
 }
 
 ::-webkit-input-placeholder {

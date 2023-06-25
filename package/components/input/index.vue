@@ -55,6 +55,7 @@ import autosize from 'autosize';
 import {
     defineProps, defineEmits, ref, onMounted, watch, nextTick, defineExpose
 } from 'vue';
+import { sleep } from '@sankki/utils-common/esm/sleep';
 
 const props = defineProps({
     value: [String, Number],
@@ -145,14 +146,15 @@ onMounted(async () => {
     })
 });
 watch(
-    () => props.autosize,
-    () => {
+    () => [props.autosize, props.value],
+    async () => {
+        await sleep(100);
         checkAutosize();
     },
+    {
+        deep: true,
+    }
 );
-watch(() => props.value, () => {
-    checkAutosize();
-})
 </script>
 
 <style lang="scss">

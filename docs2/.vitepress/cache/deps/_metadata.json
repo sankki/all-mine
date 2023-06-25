@@ -1,36 +1,48 @@
 {
-  "hash": "dc2ba1fc",
-  "browserHash": "6e0e92a3",
+  "hash": "5fc06a11",
+  "browserHash": "44502602",
   "optimized": {
     "vue": {
-      "src": "../../../../node_modules/.pnpm/vue@3.2.25/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "d84e902c",
+      "fileHash": "5b286f7f",
       "needsInterop": false
     },
     "autosize": {
-      "src": "../../../../node_modules/.pnpm/autosize@5.0.2/node_modules/autosize/dist/autosize.esm.js",
+      "src": "../../../../node_modules/autosize/dist/autosize.esm.js",
       "file": "autosize.js",
-      "fileHash": "1d3dca2c",
+      "fileHash": "933df1be",
+      "needsInterop": false
+    },
+    "macy": {
+      "src": "../../../../node_modules/macy/dist/macy.js",
+      "file": "macy.js",
+      "fileHash": "ecb2707f",
+      "needsInterop": true
+    },
+    "@sankki/utils-common/esm/sleep": {
+      "src": "../../../../node_modules/@sankki/utils-common/esm/sleep.js",
+      "file": "@sankki_utils-common_esm_sleep.js",
+      "fileHash": "038eae0b",
+      "needsInterop": false
+    },
+    "@sankki/utils-common/esm/url-to-image": {
+      "src": "../../../../node_modules/@sankki/utils-common/esm/url-to-image.js",
+      "file": "@sankki_utils-common_esm_url-to-image.js",
+      "fileHash": "ca5a9811",
+      "needsInterop": false
+    },
+    "viewerjs": {
+      "src": "../../../../node_modules/viewerjs/dist/viewer.esm.js",
+      "file": "viewerjs.js",
+      "fileHash": "2ab515b5",
       "needsInterop": false
     },
     "nanoid": {
-      "src": "../../../../node_modules/.pnpm/nanoid@3.3.6/node_modules/nanoid/index.browser.js",
+      "src": "../../../../node_modules/nanoid/index.browser.js",
       "file": "nanoid.js",
-      "fileHash": "04c6713b",
+      "fileHash": "58d96f3b",
       "needsInterop": false
-    },
-    "@babel/types": {
-      "src": "../../../../node_modules/_@babel_types@7.20.0@@babel/types/lib/index.js",
-      "file": "@babel_types.js",
-      "fileHash": "c2c006f7",
-      "needsInterop": true
-    },
-    "macy": {
-      "src": "../../../../node_modules/.pnpm/macy@2.5.1/node_modules/macy/dist/macy.js",
-      "file": "macy.js",
-      "fileHash": "27567e4d",
-      "needsInterop": true
     }
   },
   "chunks": {

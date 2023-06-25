@@ -1,15 +1,15 @@
 <template>
-    <!-- 菜单 -->
-    <div class="am-menu">
+    <div class="am-layout-config">
         <slot />
     </div>
 </template>
 
 <script setup>
+
 </script>
 
 <style lang="scss">
-.am-menu {
-    width: 100%;
+.am-layout-config {
+
 }
 </style>

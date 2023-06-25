@@ -1,6 +1,6 @@
 import "./chunk-RSJERJUL.js";
 
-// node_modules/.pnpm/autosize@5.0.2/node_modules/autosize/dist/autosize.esm.js
+// node_modules/autosize/dist/autosize.esm.js
 var e;
 var t;
 var n = "function" == typeof Map ? /* @__PURE__ */ new Map() : (e = [], t = [], { has: function(t2) {

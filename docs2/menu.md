@@ -30,7 +30,7 @@
                 </AmMenuItem>
             </template>
         </AmMenuItem>
-        <AmMenuItem>一级标题</AmMenuItem>
+        <AmMenuItem :is-selected="true">一级标题123</AmMenuItem>
         <AmMenuItem>一级标题</AmMenuItem>
         <AmMenuItem>一级标题</AmMenuItem>
         <AmMenuItem>一级标题</AmMenuItem>

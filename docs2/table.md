@@ -12,6 +12,7 @@
     <AmTable
         :data="list"
         height="200px"
+        state="loading"
         @sort-change="sortChange"
     >
         <AmTableColumn label="姓名" prop="name"></AmTableColumn>
@@ -27,6 +28,7 @@
     <AmTable
         :data="list"
         @sort-change="sortChange"
+        state="error"
     >
         <AmTableColumn label="姓名" prop="name"></AmTableColumn>
         <AmTableColumn label="年龄" prop="age" :width="300">

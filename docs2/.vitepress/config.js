@@ -30,6 +30,8 @@ export default defineConfig({
               { text: '图标', link: '/icon' },
               { text: '分隔符', link: '/divider' },
               { text: '标签', link: '/tag' },
+              { text: '图片', link: '/img' },
+              { text: '图片预览', link: '/img-viewer' },
           ],
           sidebarDepth:3
       },
@@ -77,8 +79,26 @@ export default defineConfig({
           ],
           sidebarDepth:3
       },
-  ],
+      {
+        text:'布局',
+        items: [
+            { text: '管理页面布局', link: '/layout-admin' },
+            { text: '标题', link: '/layout-title' },
+            { text: '卡片', link: '/card' },
+            { text: '配置', link: '/layout-config' },
+            { text: '条', link: '/layout-bar' },
+        ],
+        sidebarDepth:3
+      },
 
+      {
+        text:'小成品',
+        items: [
+            { text: '用户登录', link: '/user-login' },
+        ],
+        sidebarDepth:3
+      },
+  ],
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }

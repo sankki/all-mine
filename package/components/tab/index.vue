@@ -63,24 +63,24 @@ const clickTab = (item) => {
     // padding: 4px;
     // 默认风格
     &.is-default {
-        background: var(--c-bglight);
-        border-radius: 4px;
-        padding: 4px;
+        background: var(--c-bgdark);
+        border-radius: 3px;
+        padding: 3px;
         .am-tab__item {
-            height: calc(32px - 8px);
+            height: calc(32px - 6px);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 2px;
+            border-radius: 1px;
             cursor: pointer;
             font: var(--f-13);
-            padding: 0 8px;
+            padding: 0 12px;
             // border: 1px solid rgba(0,0,0,0);
             color: var(--c-sub);
             position: relative;
             overflow: hidden;
             transition: background .2s;
-            border-radius: 4px;
+            border-radius: 2px;
             span {
                 position: relative;
                 z-index: 2;
@@ -108,7 +108,7 @@ const clickTab = (item) => {
                 //     opacity: 1;
                 // }
                 background: #fff;
-                box-shadow: var(--s-low);
+                // box-shadow: var(--s-low);
             }
             &:hover:not(.is-active) {
                 // background: var(--c-bglight);

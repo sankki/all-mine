@@ -1,5 +1,10 @@
 <template>
     <div class="am-pagination">
+        <!-- 总页数 -->
+        <div class="am-pagination__total" v-if="showTotal">
+            共 {{ total }} 条
+        </div>
+        
         <!-- 上一页 -->
         <AmButton
             class="am-pagination__left"
@@ -70,6 +75,11 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    // 显示总数
+    showTotal: {
+        type: Boolean,
+        default: false,
+    }
 })
 
 const pagers = computed(() => {
@@ -164,6 +174,17 @@ const changePageSize = (value) => {
         &:last-child {
             margin-right: 0;
         }
+        &.is-disabled {
+            opacity: 1;
+            color: var(--c-border);
+        }
+    }
+    &__total {
+        display: flex;
+        align-items: center;
+        font: var(--f-14);
+        margin-right: 16px;
+        color: var(--c-main);
     }
     // 左页码
     &__left {

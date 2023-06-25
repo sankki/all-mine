@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../node_modules/@sankki/utils-common/esm/sleep.js"],
+  "sourcesContent": ["const e=e=>new Promise((s=>{setTimeout((()=>{s()}),e)}));var s={sleep:e};export{s as default,e as sleep};\n"],
+  "mappings": ";;;AAAA,IAAM,IAAE,CAAAA,OAAG,IAAI,QAAS,CAAAC,OAAG;AAAC,aAAY,MAAI;AAAC,IAAAA,GAAE;AAAA,EAAC,GAAGD,EAAC;AAAC,CAAE;AAAE,IAAI,IAAE,EAAC,OAAM,EAAC;",
+  "names": ["e", "s"]
+}

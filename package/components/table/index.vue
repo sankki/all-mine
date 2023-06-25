@@ -74,6 +74,11 @@
                 </tbody>
             </table>
         </div>
+        <AmListStatus
+            v-if="state"
+            :state="state"
+        >
+        </AmListStatus>
     </div>
 </template>
 
@@ -92,6 +97,7 @@ import {
     onBeforeUnmount
 } from 'vue';
 import { observeElResize, offObserveElResize } from '../../utils/dom';
+import AmListStatus from '../list-status/index.vue';
 
 const props = defineProps({
     // 表格数据
@@ -120,6 +126,7 @@ const props = defineProps({
         type: Object,
         default: () => {},
     },
+    state: null,
     // watch dom
 });
 const columnData = ref([]);
@@ -189,7 +196,7 @@ const Cell = defineComponent({
         border: none;
     }
     &__hd {
-        border: 1px solid var(--c-border);
+        // border: 1px solid var(--c-border);
         background: var(--c-bglight);
         display: inline-flex;
         > table {
@@ -200,11 +207,11 @@ const Cell = defineComponent({
             > thead {
                 > tr {
                     > th {
-                        padding: 8px 12px;
-                        color: var(--c-sub);
+                        padding: 6px 12px;
+                        color: var(--c-main);
                         font: var(--f-14);
                         text-align: left;
-                        border-right: 1px solid var(--c-border);
+                        // border-right: 1px solid var(--c-border);
                         &:nth-last-child(1), &:nth-last-child(2) {
                             border-right: none;
                         }
@@ -214,7 +221,7 @@ const Cell = defineComponent({
         }
     }
     &__bd {
-        border: 1px solid var(--c-border);
+        // border: 1px solid var(--c-border);
         border-top: none;
         display: inline-flex;
         > table {
@@ -226,11 +233,11 @@ const Cell = defineComponent({
                 > tr {
                     border-bottom: 1px solid var(--c-border);
                     > td {
-                        padding: 8px 12px;
+                        padding: 6px 12px;
                         font: var(--f-14);
                         text-align: left;
                         color: var(--c-main);
-                        border-right: 1px solid var(--c-border);
+                        // border-right: 1px solid var(--c-border);
                         &:nth-last-child(1) {
                             border-right: none;
                         }
@@ -242,10 +249,10 @@ const Cell = defineComponent({
                         }
                     }
                     &:last-child {
-                        border-bottom: none;
-                        > td {
-                            border-bottom: none;
-                        }
+                        // border-bottom: none;
+                        // > td {
+                        //     border-bottom: none;
+                        // }
                     }
                 }
             }
@@ -299,6 +306,10 @@ const Cell = defineComponent({
                 border-top-color: #333;
             }
         }
+    }
+
+    .am-list-status {
+        padding: 16px 0;
     }
 }
 </style>

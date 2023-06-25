@@ -1,6 +1,6 @@
 {
-  "name": "all-mine",
-  "version": "2.0.47",
+  "name": "@sankki/all-mine",
+  "version": "2.0.51",
   "description": "",
   "type": "module",
   "directories": {
@@ -24,9 +24,11 @@
     "docs:build": "vitepress build docs2",
     "docs:serve": "vitepress serve docs",
     "ci-publish": "node cicd/ci-publish.js",
-    "docs:preview": "vitepress preview docs2"
+    "docs:preview": "vitepress preview docs2",
+    "publish-github": "npm publish"
   },
   "dependencies": {
+    "@sankki/utils-common": "^1.0.1",
     "autosize": "^5.0.1",
     "axios": "^0.23.0",
     "dayjs": "^1.10.7",
@@ -36,6 +38,8 @@
     "nanoid": "^3.1.30",
     "normalize.css": "^8.0.1",
     "object-hash": "^3.0.0",
+    "viewerjs": "^1.11.3",
+    "vitepress-theme-demoblock": "^2.0.2",
     "vue-draggable-resizable": "^2.3.0",
     "vue-resizable": "^2.0.5",
     "vue-router": "^4.0.12"
@@ -58,12 +62,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/renjianganguan/all-mine.git"
+    "url": "https://github.com/sankki/all-mine.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/renjianganguan/all-mine/issues"
   },
-  "homepage": "https://github.com/renjianganguan/all-mine#readme"
+  "homepage": "https://github.com/renjianganguan/all-mine#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }

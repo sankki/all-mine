@@ -1,6 +1,11 @@
 <template>
     <!-- 菜单项 -->
-    <div class="am-menu-item">
+    <div 
+        class="am-menu-item"
+        :class="{
+            ['is-selected']: isSelected,
+        }"    
+    >
         <div 
             class="am-menu-item__content" 
             v-if="$slots.default"
@@ -10,18 +15,21 @@
             <AmIcon 
                 class="am-menu-item__icon"
                 :name="icon" 
-                size="18px"
+                size="16px"
                 v-if="icon" 
             />
             <div class="am-menu-item__text">
                 <slot />
             </div>
+
             <AmIcon
                 v-if="$slots.children"
                 class="am-menu-item__down" 
                 name="down" 
-                size="18px" 
+                size="16px"
+                color="var(--c-sub)"
             />
+
         </div>
         <div 
             class="am-menu-item__children"
@@ -43,6 +51,10 @@ const props = defineProps({
     open: {
         type: String,
         default: false,
+    },
+    isSelected: {
+        Boolean,
+        default: false,
     }
 })
 // 告知子级层级
@@ -56,7 +68,7 @@ console.log(level, 'level');
 
 const contentStyle = computed(() => {
     return {
-        paddingLeft: (level + 1) * 16 + 'px',
+        paddingLeft: (level + 1) * 20 + 'px',
     }
 })
 
@@ -71,14 +83,16 @@ const hanlderClick = () => {
     user-select: none;
     &__content {
         cursor: pointer;
-        transition: background .2s;
+        // transition: background .2s;
         position: relative;
-        border-radius: 2px;
-        padding: 8px 16px;
+        // border-radius: 2px;
+        padding: 0 20px;
+        height: 40px;
         display: flex;
         align-items: center;
         &:hover {
-            background: var(--c-bglight);
+            // background: var(--c-pla);
+            background: var(--c-bgthin);
         }
     }
     &__icon {
@@ -87,17 +101,23 @@ const hanlderClick = () => {
     &__text {
         display: inline-flex;
         align-items: center;
-        font-size: 14px;
+        font: var(--f-14);
+        color: var(--c-main);
     }
     &__down {
         position: absolute;
-        right: 8px;
+        right: 12px;
         top: 0;
         bottom: 0;
         margin: auto;
     }
     &__children {
 
+    }
+    &.is-selected {
+        .am-menu-item__content {
+            background: var(--c-bglight);
+        }
     }
 }
 </style>

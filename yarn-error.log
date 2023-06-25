@@ -1,0 +1,98 @@
+Arguments: 
+  D:\software\node\node.exe C:\Users\40187\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\software\node\;D:\software\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;D:\software\微信web开发者工具\dll;C:\Users\40187\AppData\Local\Microsoft\WindowsApps;C:\Users\40187\AppData\Roaming\npm;D:\software\Microsoft VS Code\bin;C:\Users\40187\AppData\Local\GitHubDesktop\bin;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.17.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EEXIST: file already exists, mkdir 'D:\project\all-mine\node_modules\vue-demi\node_modules\@vue'
+
+npm manifest: 
+  {
+    "name": "@sankki/all-mine",
+    "version": "2.0.47",
+    "description": "",
+    "type": "module",
+    "directories": {
+      "doc": "doc"
+    },
+    "files": [
+      "lib",
+      "mini-lib"
+    ],
+    "main": "./lib/all-mine.js",
+    "exports": {
+      ".": {
+        "import": "./lib/all-mine.js"
+      },
+      "./lib/style.css": "./lib/style.css"
+    },
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "docs:dev": "vitepress dev docs2",
+      "docs:build": "vitepress build docs2",
+      "docs:serve": "vitepress serve docs",
+      "ci-publish": "node cicd/ci-publish.js",
+      "docs:preview": "vitepress preview docs2"
+    },
+    "dependencies": {
+      "@sankki/utils-common": "^1.0.1",
+      "autosize": "^5.0.1",
+      "axios": "^0.23.0",
+      "dayjs": "^1.10.7",
+      "lodash": "^4.17.21",
+      "lodash-es": "^4.17.21",
+      "macy": "^2.5.1",
+      "nanoid": "^3.1.30",
+      "normalize.css": "^8.0.1",
+      "object-hash": "^3.0.0",
+      "vue-draggable-resizable": "^2.3.0",
+      "vue-resizable": "^2.0.5",
+      "vue-router": "^4.0.12"
+    },
+    "devDependencies": {
+      "@vitejs/plugin-vue": "2.2.0",
+      "babel-eslint": "^10.1.0",
+      "eslint": "^8.1.0",
+      "eslint-config-prettier": "^8.3.0",
+      "eslint-plugin-prettier": "^4.0.0",
+      "eslint-plugin-vue": "^7.20.0",
+      "prettier": "^2.4.1",
+      "prettier-eslint": "^13.0.0",
+      "sass": "^1.43.3",
+      "sass-loader": "^12.2.0",
+      "unplugin-auto-import": "^0.5.3",
+      "vite": "^4.3.3",
+      "vitepress": "^1.0.0-alpha.75",
+      "vue": "3.2.25"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/sankki/all-mine.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/renjianganguan/all-mine/issues"
+    },
+    "homepage": "https://github.com/renjianganguan/all-mine#readme",
+    "publishConfig": {
+      "registry": "https://github.com/sankki/all-mine.git"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

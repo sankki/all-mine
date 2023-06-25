@@ -1,31 +1,38 @@
 <template>
     <div class="am-list-status" ref="observerEl">
         <!-- 加载中 -->
-        <div class="am-list-status__loading" v-if="isLoading">
+        <div class="am-list-status__loading" v-if="state === 'loading' && loadingText">
             <AmIcon name="loading1" size="18px" color="#aaa"/>
             <span>{{ loadingText }}</span>
         </div>
         <!-- 为空 -->
-        <div class="am-list-status__empty" v-else-if="isEmpty">
+        <div class="am-list-status__empty" v-else-if="state === 'empty' && emptyText">
             <AmIcon name="product1" size="18px" color="#aaa"/>
             <span>{{ emptyText }}</span>
         </div>
         <!-- 加载错误 -->
-        <div class="am-list-status__error" v-else-if="isError">
+        <div class="am-list-status__error" v-else-if="state === 'error' && errorText">
             <AmIcon name="product1" size="18px" color="#aaa"/>
             <span>{{ errorText }}</span>
             <a 
                 @click="clickRetry"    
             >重试</a>
         </div>
+
         <!-- 到底了（下拉刷新用） -->
-        <div class="am-list-status__end" v-else-if="isEnd && endText">
+        <div class="am-list-status__end" v-else-if="state === 'end' && endText">
             <AmIcon name="product1" size="18px" color="#aaa"/>
             <span>{{ endText }}</span>
         </div>
+
+        <!-- 到底了（下拉刷新用） -->
+        <div class="am-list-status__end" v-else-if="state === 'last' && lastText">
+            <AmIcon name="product1" size="18px" color="#aaa"/>
+            <span>{{ lastText }}</span>
+        </div>
+
         <!-- 空白（下拉刷新用， 当内容小于容器高度显示） -->
-        <div class="am-list-status__error" v-else-if="isBlank">
-            <!-- <AmIcon name="product1" size="18px" color="#aaa"/> -->
+        <div class="am-list-status__error" v-else-if="state === 'blank' && blankText">
             <a
                 style="margin: 0;"
                 @click="clickBlank"    
@@ -41,8 +48,6 @@ import {
     onUnmounted,
     defineEmits,
     ref,
-    watch,
-    computed
 } from 'vue';
 
 const observerEl = ref(null);
@@ -51,30 +56,14 @@ const props = defineProps({
         type: Object,
         default: () => {},
     },
-    isLoading: {
-        type: Boolean,
-        default: false,
-    },
-    isEnd: {
-        type: Boolean,
-        default: false,
-    },
-    isEmpty: {
-        type: Boolean,
-        default: false,
-    },
-    isError: {
-        type: Boolean,
-        default: false,
-    },
-    isBlank: {
-        type: Boolean,
-        default: false,
+    state: {
+        type: String,
+        default: '',
     },
 
     endText: {
         type: String,
-        default: '到底了',
+        default: '',
     },
     loadingText: {
         type: String,
@@ -87,6 +76,10 @@ const props = defineProps({
     errorText: {
         type: String,
         default: '加载错误',
+    },
+    lastText: {
+        type: String,
+        default: '到底了',
     },
     blankText: {
         type: String,
@@ -121,7 +114,7 @@ onUnmounted(() => {
 .am-list-status {
     width: 100%;
     display: flex;
-    min-height: 20px;
+    // min-height: 20px;
     &__loading, &__end, &__empty,  &__error {
         width: 100%;
         display: flex;

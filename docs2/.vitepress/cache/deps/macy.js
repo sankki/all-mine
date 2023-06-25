@@ -2,9 +2,9 @@ import {
   __commonJS
 } from "./chunk-RSJERJUL.js";
 
-// node_modules/.pnpm/macy@2.5.1/node_modules/macy/dist/macy.js
+// node_modules/macy/dist/macy.js
 var require_macy = __commonJS({
-  "node_modules/.pnpm/macy@2.5.1/node_modules/macy/dist/macy.js"(exports, module) {
+  "node_modules/macy/dist/macy.js"(exports, module) {
     !function(t, n) {
       "object" == typeof exports && "undefined" != typeof module ? module.exports = n() : "function" == typeof define && define.amd ? define(n) : t.Macy = n();
     }(exports, function() {

@@ -1,9 +1,9 @@
 import "./chunk-RSJERJUL.js";
 
-// node_modules/.pnpm/nanoid@3.3.6/node_modules/nanoid/url-alphabet/index.js
+// node_modules/nanoid/url-alphabet/index.js
 var urlAlphabet = "useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict";
 
-// node_modules/.pnpm/nanoid@3.3.6/node_modules/nanoid/index.browser.js
+// node_modules/nanoid/index.browser.js
 var random = (bytes) => crypto.getRandomValues(new Uint8Array(bytes));
 var customRandom = (alphabet, defaultSize, getRandom) => {
   let mask = (2 << Math.log(alphabet.length - 1) / Math.LN2) - 1;
