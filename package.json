@@ -1,6 +1,6 @@
 {
-  "name": "@sankki/all-mine",
-  "version": "2.0.55",
+  "name": "all-mine",
+  "version": "2.0.56",
   "description": "",
   "type": "module",
   "directories": {
@@ -69,8 +69,5 @@
   "bugs": {
     "url": "https://github.com/renjianganguan/all-mine/issues"
   },
-  "homepage": "https://github.com/renjianganguan/all-mine#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  }
+  "homepage": "https://github.com/renjianganguan/all-mine#readme"
 }
